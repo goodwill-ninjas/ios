@@ -1,0 +1,625 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CD42FE129A276B8007C4EF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */; };
+		5CD42FE529A276B8007C4EF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FE429A276B8007C4EF0 /* MainViewController.swift */; };
+		5CD42FEA29A276B9007C4EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD42FE929A276B9007C4EF0 /* Assets.xcassets */; };
+		5CD42FED29A276B9007C4EF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD42FEB29A276B9007C4EF0 /* LaunchScreen.storyboard */; };
+		5CD42FF829A276B9007C4EF0 /* BloodDonorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FF729A276B9007C4EF0 /* BloodDonorTests.swift */; };
+		5CD4300229A276B9007C4EF0 /* BloodDonorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4300129A276B9007C4EF0 /* BloodDonorUITests.swift */; };
+		5CD4300429A276B9007C4EF0 /* BloodDonorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4300329A276B9007C4EF0 /* BloodDonorUITestsLaunchTests.swift */; };
+		5CD4301229A2AF78007C4EF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301129A2AF78007C4EF0 /* HomeViewController.swift */; };
+		5CD4301429A2AFC0007C4EF0 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301329A2AFC0007C4EF0 /* UserViewController.swift */; };
+		5CD4301629A2AFF3007C4EF0 /* AddDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301529A2AFF3007C4EF0 /* AddDonationViewController.swift */; };
+		5CD4301829A2B01B007C4EF0 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */; };
+		5CD4301A29A2B048007C4EF0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301929A2B048007C4EF0 /* MapViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CD42FF429A276B9007C4EF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CD42FD529A276B8007C4EF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CD42FDC29A276B8007C4EF0;
+			remoteInfo = BloodDonor;
+		};
+		5CD42FFE29A276B9007C4EF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CD42FD529A276B8007C4EF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CD42FDC29A276B8007C4EF0;
+			remoteInfo = BloodDonor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5CD42FE429A276B8007C4EF0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5CD42FE929A276B9007C4EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CD42FEC29A276B9007C4EF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5CD42FEE29A276B9007C4EF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CD42FF329A276B9007C4EF0 /* BloodDonorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloodDonorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD42FF729A276B9007C4EF0 /* BloodDonorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDonorTests.swift; sourceTree = "<group>"; };
+		5CD42FFD29A276B9007C4EF0 /* BloodDonorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloodDonorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD4300129A276B9007C4EF0 /* BloodDonorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDonorUITests.swift; sourceTree = "<group>"; };
+		5CD4300329A276B9007C4EF0 /* BloodDonorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDonorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5CD4301129A2AF78007C4EF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5CD4301329A2AFC0007C4EF0 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		5CD4301529A2AFF3007C4EF0 /* AddDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationViewController.swift; sourceTree = "<group>"; };
+		5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
+		5CD4301929A2B048007C4EF0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CD42FDA29A276B8007C4EF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FF029A276B9007C4EF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FFA29A276B9007C4EF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CD42FD429A276B8007C4EF0 = {
+			isa = PBXGroup;
+			children = (
+				5CD42FDF29A276B8007C4EF0 /* BloodDonor */,
+				5CD42FF629A276B9007C4EF0 /* BloodDonorTests */,
+				5CD4300029A276B9007C4EF0 /* BloodDonorUITests */,
+				5CD42FDE29A276B8007C4EF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CD42FDE29A276B8007C4EF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */,
+				5CD42FF329A276B9007C4EF0 /* BloodDonorTests.xctest */,
+				5CD42FFD29A276B9007C4EF0 /* BloodDonorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CD42FDF29A276B8007C4EF0 /* BloodDonor */ = {
+			isa = PBXGroup;
+			children = (
+				5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */,
+				5CD4301B29A2B28B007C4EF0 /* Controllers */,
+				5CD42FE429A276B8007C4EF0 /* MainViewController.swift */,
+				5CD42FEE29A276B9007C4EF0 /* Info.plist */,
+				5CD4301029A2AF0E007C4EF0 /* Files */,
+			);
+			path = BloodDonor;
+			sourceTree = "<group>";
+		};
+		5CD42FF629A276B9007C4EF0 /* BloodDonorTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CD42FF729A276B9007C4EF0 /* BloodDonorTests.swift */,
+			);
+			path = BloodDonorTests;
+			sourceTree = "<group>";
+		};
+		5CD4300029A276B9007C4EF0 /* BloodDonorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5CD4300129A276B9007C4EF0 /* BloodDonorUITests.swift */,
+				5CD4300329A276B9007C4EF0 /* BloodDonorUITestsLaunchTests.swift */,
+			);
+			path = BloodDonorUITests;
+			sourceTree = "<group>";
+		};
+		5CD4301029A2AF0E007C4EF0 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CD42FE929A276B9007C4EF0 /* Assets.xcassets */,
+				5CD42FEB29A276B9007C4EF0 /* LaunchScreen.storyboard */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		5CD4301B29A2B28B007C4EF0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CD4301929A2B048007C4EF0 /* MapViewController.swift */,
+				5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */,
+				5CD4301529A2AFF3007C4EF0 /* AddDonationViewController.swift */,
+				5CD4301329A2AFC0007C4EF0 /* UserViewController.swift */,
+				5CD4301129A2AF78007C4EF0 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CD42FDC29A276B8007C4EF0 /* BloodDonor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CD4300729A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonor" */;
+			buildPhases = (
+				5CD42FD929A276B8007C4EF0 /* Sources */,
+				5CD42FDA29A276B8007C4EF0 /* Frameworks */,
+				5CD42FDB29A276B8007C4EF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BloodDonor;
+			productName = BloodDonor;
+			productReference = 5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CD42FF229A276B9007C4EF0 /* BloodDonorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CD4300A29A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonorTests" */;
+			buildPhases = (
+				5CD42FEF29A276B9007C4EF0 /* Sources */,
+				5CD42FF029A276B9007C4EF0 /* Frameworks */,
+				5CD42FF129A276B9007C4EF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CD42FF529A276B9007C4EF0 /* PBXTargetDependency */,
+			);
+			name = BloodDonorTests;
+			productName = BloodDonorTests;
+			productReference = 5CD42FF329A276B9007C4EF0 /* BloodDonorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5CD42FFC29A276B9007C4EF0 /* BloodDonorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CD4300D29A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonorUITests" */;
+			buildPhases = (
+				5CD42FF929A276B9007C4EF0 /* Sources */,
+				5CD42FFA29A276B9007C4EF0 /* Frameworks */,
+				5CD42FFB29A276B9007C4EF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CD42FFF29A276B9007C4EF0 /* PBXTargetDependency */,
+			);
+			name = BloodDonorUITests;
+			productName = BloodDonorUITests;
+			productReference = 5CD42FFD29A276B9007C4EF0 /* BloodDonorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CD42FD529A276B8007C4EF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5CD42FDC29A276B8007C4EF0 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					5CD42FF229A276B9007C4EF0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5CD42FDC29A276B8007C4EF0;
+					};
+					5CD42FFC29A276B9007C4EF0 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5CD42FDC29A276B8007C4EF0;
+					};
+				};
+			};
+			buildConfigurationList = 5CD42FD829A276B8007C4EF0 /* Build configuration list for PBXProject "BloodDonor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CD42FD429A276B8007C4EF0;
+			productRefGroup = 5CD42FDE29A276B8007C4EF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CD42FDC29A276B8007C4EF0 /* BloodDonor */,
+				5CD42FF229A276B9007C4EF0 /* BloodDonorTests */,
+				5CD42FFC29A276B9007C4EF0 /* BloodDonorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CD42FDB29A276B8007C4EF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD42FED29A276B9007C4EF0 /* LaunchScreen.storyboard in Resources */,
+				5CD42FEA29A276B9007C4EF0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FF129A276B9007C4EF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FFB29A276B9007C4EF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CD42FD929A276B8007C4EF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD4301829A2B01B007C4EF0 /* DonationsViewController.swift in Sources */,
+				5CD42FE529A276B8007C4EF0 /* MainViewController.swift in Sources */,
+				5CD4301429A2AFC0007C4EF0 /* UserViewController.swift in Sources */,
+				5CD4301629A2AFF3007C4EF0 /* AddDonationViewController.swift in Sources */,
+				5CD42FE129A276B8007C4EF0 /* AppDelegate.swift in Sources */,
+				5CD4301229A2AF78007C4EF0 /* HomeViewController.swift in Sources */,
+				5CD4301A29A2B048007C4EF0 /* MapViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FEF29A276B9007C4EF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD42FF829A276B9007C4EF0 /* BloodDonorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD42FF929A276B9007C4EF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CD4300429A276B9007C4EF0 /* BloodDonorUITestsLaunchTests.swift in Sources */,
+				5CD4300229A276B9007C4EF0 /* BloodDonorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CD42FF529A276B9007C4EF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CD42FDC29A276B8007C4EF0 /* BloodDonor */;
+			targetProxy = 5CD42FF429A276B9007C4EF0 /* PBXContainerItemProxy */;
+		};
+		5CD42FFF29A276B9007C4EF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CD42FDC29A276B8007C4EF0 /* BloodDonor */;
+			targetProxy = 5CD42FFE29A276B9007C4EF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5CD42FEB29A276B9007C4EF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CD42FEC29A276B9007C4EF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5CD4300529A276B9007C4EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CD4300629A276B9007C4EF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CD4300829A276B9007C4EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BloodDonor/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CD4300929A276B9007C4EF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BloodDonor/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5CD4300B29A276B9007C4EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BloodDonor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BloodDonor";
+			};
+			name = Debug;
+		};
+		5CD4300C29A276B9007C4EF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BloodDonor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BloodDonor";
+			};
+			name = Release;
+		};
+		5CD4300E29A276B9007C4EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloodDonor;
+			};
+			name = Debug;
+		};
+		5CD4300F29A276B9007C4EF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5H89K7C3MW;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.edu.pjwstk.GoodWillNinjas.BloodDonorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloodDonor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CD42FD829A276B8007C4EF0 /* Build configuration list for PBXProject "BloodDonor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD4300529A276B9007C4EF0 /* Debug */,
+				5CD4300629A276B9007C4EF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CD4300729A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD4300829A276B9007C4EF0 /* Debug */,
+				5CD4300929A276B9007C4EF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CD4300A29A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD4300B29A276B9007C4EF0 /* Debug */,
+				5CD4300C29A276B9007C4EF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CD4300D29A276B9007C4EF0 /* Build configuration list for PBXNativeTarget "BloodDonorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD4300E29A276B9007C4EF0 /* Debug */,
+				5CD4300F29A276B9007C4EF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CD42FD529A276B8007C4EF0 /* Project object */;
+}
