@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C9108A52A14EA4A00CF15F7 /* BloodTypeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9108A42A14EA4A00CF15F7 /* BloodTypeModal.swift */; };
 		5C9391FC29B6715100499344 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9391FB29B6715100499344 /* FormViewController.swift */; };
 		5CD42FE129A276B8007C4EF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */; };
 		5CD42FE529A276B8007C4EF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FE429A276B8007C4EF0 /* MainViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C9108A42A14EA4A00CF15F7 /* BloodTypeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodTypeModal.swift; sourceTree = "<group>"; };
 		5C9391FB29B6715100499344 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
 		5CD4301929A2B048007C4EF0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DAE9DC762A11395800AB8F27 /* BloodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodImageView.swift; sourceTree = "<group>"; };
-		DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NextDonationView.swift; path = BloodDonor/NextDonationView.swift; sourceTree = SOURCE_ROOT; };
+		DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NextDonationView.swift; path = BloodDonor/Views/NextDonationView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,6 @@
 		5CD42FDF29A276B8007C4EF0 /* BloodDonor */ = {
 			isa = PBXGroup;
 			children = (
-				DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */,
 				DAE9DC7A2A113A8F00AB8F27 /* Model */,
 				DAE9DC752A11390F00AB8F27 /* Views */,
 				5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */,
@@ -165,6 +166,7 @@
 		DAE9DC752A11390F00AB8F27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */,
 				DAE9DC762A11395800AB8F27 /* BloodImageView.swift */,
 			);
 			path = Views;
@@ -173,6 +175,7 @@
 		DAE9DC7A2A113A8F00AB8F27 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0C9108A42A14EA4A00CF15F7 /* BloodTypeModal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				5CD42FE129A276B8007C4EF0 /* AppDelegate.swift in Sources */,
 				5CD4301229A2AF78007C4EF0 /* HomeViewController.swift in Sources */,
 				5CD4301A29A2B048007C4EF0 /* MapViewController.swift in Sources */,
+				0C9108A52A14EA4A00CF15F7 /* BloodTypeModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
