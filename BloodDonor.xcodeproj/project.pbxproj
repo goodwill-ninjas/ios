@@ -20,6 +20,8 @@
 		5CD4301629A2AFF3007C4EF0 /* AddDonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301529A2AFF3007C4EF0 /* AddDonationViewController.swift */; };
 		5CD4301829A2B01B007C4EF0 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */; };
 		5CD4301A29A2B048007C4EF0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4301929A2B048007C4EF0 /* MapViewController.swift */; };
+		DAE9DC772A11395800AB8F27 /* BloodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DC762A11395800AB8F27 /* BloodImageView.swift */; };
+		DAE9DC792A113A4900AB8F27 /* NextDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		5CD4301529A2AFF3007C4EF0 /* AddDonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonationViewController.swift; sourceTree = "<group>"; };
 		5CD4301729A2B01B007C4EF0 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
 		5CD4301929A2B048007C4EF0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DAE9DC762A11395800AB8F27 /* BloodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodImageView.swift; sourceTree = "<group>"; };
+		DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NextDonationView.swift; path = BloodDonor/NextDonationView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,9 @@
 		5CD42FDF29A276B8007C4EF0 /* BloodDonor */ = {
 			isa = PBXGroup;
 			children = (
+				DAE9DC782A113A4900AB8F27 /* NextDonationView.swift */,
+				DAE9DC7A2A113A8F00AB8F27 /* Model */,
+				DAE9DC752A11390F00AB8F27 /* Views */,
 				5CD42FE029A276B8007C4EF0 /* AppDelegate.swift */,
 				5CD4301B29A2B28B007C4EF0 /* Controllers */,
 				5CD42FE429A276B8007C4EF0 /* MainViewController.swift */,
@@ -153,6 +160,21 @@
 				5CD4301129A2AF78007C4EF0 /* HomeViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DAE9DC752A11390F00AB8F27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAE9DC762A11395800AB8F27 /* BloodImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DAE9DC7A2A113A8F00AB8F27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +308,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9391FC29B6715100499344 /* FormViewController.swift in Sources */,
+				DAE9DC792A113A4900AB8F27 /* NextDonationView.swift in Sources */,
 				5CD4301829A2B01B007C4EF0 /* DonationsViewController.swift in Sources */,
 				5CD42FE529A276B8007C4EF0 /* MainViewController.swift in Sources */,
 				5CD4301429A2AFC0007C4EF0 /* UserViewController.swift in Sources */,
 				5CD4301629A2AFF3007C4EF0 /* AddDonationViewController.swift in Sources */,
+				DAE9DC772A11395800AB8F27 /* BloodImageView.swift in Sources */,
 				5CD42FE129A276B8007C4EF0 /* AppDelegate.swift in Sources */,
 				5CD4301229A2AF78007C4EF0 /* HomeViewController.swift in Sources */,
 				5CD4301A29A2B048007C4EF0 /* MapViewController.swift in Sources */,
