@@ -1,5 +1,6 @@
 // Import the UIKit framework
 import UIKit
+import SwiftUI
 
 // Define the AppDelegate class which conforms to the UIApplicationDelegate protocol
 @UIApplicationMain
@@ -22,6 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Create instances of the HomeViewController, UserViewController, AddDonationViewController, DonationsViewController, and MapViewController classes
         let homeVC = HomeViewController()
+        
+        let modal = BloodTypeModal.bloodTypes[0]
+        let child = UIHostingController(rootView: NextDonationView(modal: modal))
+        child.view.translatesAutoresizingMaskIntoConstraints = false // Disable autoresizing mask translation into constraints
+//        child.view.frame = homeVC.view.bounds
+        homeVC.view.addSubview(child.view)
+        homeVC.addChild(child)
+        child.didMove(toParent: homeVC)
+        
+        NSLayoutConstraint.activate([
+            child.view.topAnchor.constraint(equalTo: homeVC.view.topAnchor),
+            child.view.leadingAnchor.constraint(equalTo: homeVC.view.leadingAnchor),
+            child.view.trailingAnchor.constraint(equalTo: homeVC.view.trailingAnchor),
+            child.view.bottomAnchor.constraint(equalTo: homeVC.view.bottomAnchor),
+        ])
+        
         let donationsVC = DonationsViewController()
         let addDonationVC = AddDonationViewController()
         let mapVC = MapViewController()
