@@ -52,8 +52,8 @@ struct LoginView: View {
                     .frame(width: 300, height: 50)
                     .background(Color.red)
                     .cornerRadius(10)
-                    NavigationLink(destination: ContentView(), isActive: $showingLoginScreen) {
-                        HomeView()
+                    NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginScreen) {
+                        EmptyView()
                     }
                     HStack {
                         Button("Zapomniałeś hasła?") {
