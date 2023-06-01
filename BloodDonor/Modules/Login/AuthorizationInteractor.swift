@@ -44,9 +44,15 @@ extension AuthorizationInteractor {
     }
     
     // Function to log in a user with the given email and password.
-    func login(email: String, password: String) -> Void {
-        // Implementation for login functionality goes here.
+    func login(email: String, password: String, completion: @escaping (AuthResult<String>) -> Void) -> Void {
+        self.authApi.login(
+            email: email,
+            password: password,
+            success: { token in
+                completion(.success(result: token))
+            }) { (error) in
+                completion(.failure(error: error))  // Call the completion handler with a failure and an error message.
+            }
     }
 }
-
 
