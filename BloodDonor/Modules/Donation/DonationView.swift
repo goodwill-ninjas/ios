@@ -2,19 +2,14 @@
 //  DonationView.swift
 //  BloodDonor
 //
-//  Created by Łukasz Cettler on 30/05/2023.
+//  Created by Łukasz Cettler on 02/06/2023.
 //
 
 import SwiftUI
 
 struct DonationView: View {
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.teal
-            }
-            .navigationTitle("Add Donation")
-        }
+        Color.white
     }
 }
 
