@@ -15,13 +15,14 @@ struct BloodCenterView: View {
 //    }
     
     let center: [BloodCenters]
+    let bankDetails: [BloodCenterBankDetails]
     
     var body: some View {
         NavigationView {
             VStack {
                 List (center, id: \.id) { center in
                     NavigationLink {
-                        BloodCenterDetail(center: center)
+                        BloodCenterDetail(center: center, bankDetails: bankDetails)
                     } label: {
                         BloodCenterRow(center: center)
                     }
@@ -36,6 +37,7 @@ struct BloodCenterView: View {
 struct BloodCenterView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleCenter = BloodCenters.sampleCenters
-        BloodCenterView(center: sampleCenter)
+        let sampleBankDetails = BloodCenterBankDetails.sampleBankDetails
+        BloodCenterView(center: sampleCenter, bankDetails: sampleBankDetails)
     }
 }

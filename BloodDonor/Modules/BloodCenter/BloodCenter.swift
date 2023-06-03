@@ -9,10 +9,10 @@ import Foundation
 import Alamofire
 import MapKit
 
-struct BloodCenterBankDetails {
+struct BloodCenterBankDetails: Decodable {
     var bloodType: String
     var capacity: String
-    var source_datetime: String
+    var sourceDatetime: String
 }
 
 struct BloodCenters: Decodable, Identifiable {
@@ -27,6 +27,7 @@ struct BloodCenters: Decodable, Identifiable {
     var phoneNumber: String
     var openFrom: String?
     var openTo: String?
+    var bloodCenterDetails: [BloodCenterBankDetails]?
 
 }
 
@@ -71,8 +72,42 @@ class BloodCenterDataService {
             
         }
     }
+    
+    func fetchBloodCenterBankDetails(city: String) {
+        AF.request(apiBaseUrl + "/api/blood-centers/" + city, headers: headers)
+            .response { response in
+                guard let data = response.data else { return }
+                let json = String(data: data, encoding: String.Encoding.utf8)
+                debugPrint(json)
+                
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let result = try decoder.decode(BloodCenters.self, from: data)
+                    if let bloodCenterDetails = result.bloodCenterDetails {
+                        // Access and use the bloodCenterDetails array here
+                        debugPrint(bloodCenterDetails)
+                    }
+                } catch let error {
+                    debugPrint("\(error)")
+                }
+            }
+    }
+
 }
 
+extension BloodCenterBankDetails {
+    static let sampleBankDetails: [BloodCenterBankDetails] = [
+        BloodCenterBankDetails(bloodType: "AB Rh+", capacity: "OPTIMAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "AB Rh-", capacity: "CRITICAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "B Rh+", capacity: "MODERATE", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "B Rh-", capacity: "CRITICAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "A Rh+", capacity: "OPTIMAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "A Rh-", capacity: "CRITICAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "0 Rh+", capacity: "CRITICAL", sourceDatetime: "2023-05-24T13:15:00.000Z"),
+        BloodCenterBankDetails(bloodType: "0 Rh-", capacity: "CRITICAL", sourceDatetime: "2023-05-24T13:15:00.000Z")
+    ]
+}
 
 extension BloodCenters {
         static let sampleCenters: [BloodCenters] =
