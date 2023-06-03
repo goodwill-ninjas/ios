@@ -43,23 +43,10 @@ class BloodCenterDataService {
        ]
     }
     
-    func fetchBloodCenterData() { // completion: @escaping (String) -> Void
+    func fetchBloodCenterData() {
         AF.request(apiBaseUrl + "/api/blood-centers", headers: headers)
             .response { response in
             guard let data = response.data else { return }
-//            debugPrint(response)
-//
-//            switch response.result {
-//            case .success(let data):
-//                completion(response.data)
-//
-//            case .failure(let error):
-//                completion(.failure(error))
-//
-//            default:
-//                fatalError()
-//            }
-            
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
