@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        let center = BloodCenters.sampleCenters
+        let bankDetails = BloodCenterBankDetails.sampleBankDetails
+        
         TabView {
             HomeView()
                 .tabItem{
@@ -18,7 +21,7 @@ struct ContentView: View {
                     Image(systemName: "plus.circle.fill")
                     Text("Dodaj wpis")
                 }
-            BloodCenterView()
+            BloodCenterView(center: center, bankDetails: bankDetails)
                 .tabItem{
                     Image(systemName: "mappin.and.ellipse")
                     Text("Placówki")
