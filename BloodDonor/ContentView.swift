@@ -6,6 +6,9 @@ struct ContentView: View {
     @State private var navigateToAddDisqualification = false
     
     var body: some View {
+        let center = BloodCenters.sampleCenters
+        let bankDetails = BloodCenterBankDetails.sampleBankDetails
+        
         TabView {
             HomeView()
                 .tabItem{
@@ -48,7 +51,7 @@ struct ContentView: View {
             .sheet(isPresented: $navigateToAddDisqualification) {
                 AddDisqualification()
             }
-            BloodCenterView()
+            BloodCenterView(center: center, bankDetails: bankDetails)
                 .tabItem{
                     Image(systemName: "mappin.and.ellipse")
                     Text("Placówki")
