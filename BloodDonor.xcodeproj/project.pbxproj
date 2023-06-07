@@ -132,8 +132,6 @@
 			children = (
 				5C03B9082A27CA9200955672 /* HttpRouter.swift */,
 				5C03B90A2A27CAA600955672 /* HttpService.swift */,
-				5C03B90C2A27E95500955672 /* AuthHttpService.swift */,
-				5C03B90E2A28B4B800955672 /* AuthHttpRouter.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -167,6 +165,7 @@
 		5C1EF8A82A16D61A00F5771E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5C3D4D6C2A31008D00A687C7 /* API */,
 				5C1EF8AE2A16D6F800F5771E /* Login */,
 				5C1EF8AD2A16D6EF00F5771E /* Onboarding */,
 				5C1EF8A92A16D62300F5771E /* Home */,
@@ -217,14 +216,23 @@
 			isa = PBXGroup;
 			children = (
 				5C03B91C2A28F2E500955672 /* Views */,
-				5C03B9072A27CA7B00955672 /* HTTP */,
-				5C03B8F72A27BD8A00955672 /* Errors */,
 				5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */,
+				5C03B90E2A28B4B800955672 /* AuthHttpRouter.swift */,
+				5C03B90C2A27E95500955672 /* AuthHttpService.swift */,
 				5C03B9032A27C90A00955672 /* AuthService.swift */,
 				5C03B9052A27C93B00955672 /* AuthAPI.swift */,
 				5C03B9102A28B81C00955672 /* AuthModel.swift */,
+				5C03B8F72A27BD8A00955672 /* Errors */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		5C3D4D6C2A31008D00A687C7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5C03B9072A27CA7B00955672 /* HTTP */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		5CD42FD429A276B8007C4EF0 = {
