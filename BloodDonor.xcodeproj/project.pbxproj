@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C03B8FE2A27C0D400955672 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5C03B8FD2A27C0D400955672 /* Alamofire */; };
+		5C03B9002A27C41A00955672 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */; };
+		5C03B9042A27C90A00955672 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9032A27C90A00955672 /* AuthService.swift */; };
+		5C03B9062A27C93B00955672 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9052A27C93B00955672 /* AuthAPI.swift */; };
+		5C03B9092A27CA9200955672 /* HttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9082A27CA9200955672 /* HttpRouter.swift */; };
+		5C03B90B2A27CAA600955672 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B90A2A27CAA600955672 /* HttpService.swift */; };
+		5C03B90D2A27E95500955672 /* AuthHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B90C2A27E95500955672 /* AuthHttpService.swift */; };
+		5C03B90F2A28B4B800955672 /* AuthHttpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B90E2A28B4B800955672 /* AuthHttpRouter.swift */; };
+		5C03B9112A28B81C00955672 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9102A28B81C00955672 /* AuthModel.swift */; };
+		5C03B9132A28CC2700955672 /* RegisterErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9122A28CC2700955672 /* RegisterErrorModel.swift */; };
+		5C03B91E2A28F97900955672 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B91D2A28F97900955672 /* LoginError.swift */; };
+		5C03B9262A296F5700955672 /* DetailDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9252A296F5700955672 /* DetailDonation.swift */; };
+		5C03B9282A296FBA00955672 /* AddDisqualification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9272A296FBA00955672 /* AddDisqualification.swift */; };
+		5C03B92A2A29750000955672 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9292A29750000955672 /* DonationView.swift */; };
 		0C4BB5F92A2AA1640062B7A5 /* BloodCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */; };
 		0C4BB5FB2A2AA2A60062B7A5 /* BloodCenterMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */; };
 		0C6927432A27AA76005B6D85 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0C6927422A27AA76005B6D85 /* Alamofire */; };
@@ -20,8 +34,8 @@
 		5C1C8C502A265337004EE46E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C4F2A265337004EE46E /* HomeView.swift */; };
 		5C1C8C522A265379004EE46E /* BloodCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C512A265379004EE46E /* BloodCenterView.swift */; };
 		5C1C8C542A2653CD004EE46E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C532A2653CD004EE46E /* ProfileView.swift */; };
-		5C1C8C572A265401004EE46E /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C562A265401004EE46E /* DonationView.swift */; };
-		5C1C8C592A26543B004EE46E /* DonationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C582A26543B004EE46E /* DonationListView.swift */; };
+		5C1C8C572A265401004EE46E /* DonationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C562A265401004EE46E /* DonationListView.swift */; };
+		5C1C8C592A26543B004EE46E /* AddDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C582A26543B004EE46E /* AddDonation.swift */; };
 		5C1C8C5B2A265F97004EE46E /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C5A2A265F97004EE46E /* ResetPasswordView.swift */; };
 		5C1C8C5D2A265FA1004EE46E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */; };
 		5C1C8C5F2A266B7B004EE46E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C5E2A266B7B004EE46E /* OnboardingView.swift */; };
@@ -51,6 +65,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		5C03B9032A27C90A00955672 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5C03B9052A27C93B00955672 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		5C03B9082A27CA9200955672 /* HttpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRouter.swift; sourceTree = "<group>"; };
+		5C03B90A2A27CAA600955672 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		5C03B90C2A27E95500955672 /* AuthHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHttpService.swift; sourceTree = "<group>"; };
+		5C03B90E2A28B4B800955672 /* AuthHttpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHttpRouter.swift; sourceTree = "<group>"; };
+		5C03B9102A28B81C00955672 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		5C03B9122A28CC2700955672 /* RegisterErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterErrorModel.swift; sourceTree = "<group>"; };
+		5C03B91D2A28F97900955672 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		5C03B9252A296F5700955672 /* DetailDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDonation.swift; sourceTree = "<group>"; };
+		5C03B9272A296FBA00955672 /* AddDisqualification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualification.swift; sourceTree = "<group>"; };
+		5C03B9292A29750000955672 /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
 		0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterDetail.swift; sourceTree = "<group>"; };
 		0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterMapView.swift; sourceTree = "<group>"; };
 		0C6927442A27AAD5005B6D85 /* BloodCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenter.swift; sourceTree = "<group>"; };
@@ -63,8 +90,8 @@
 		5C1C8C4F2A265337004EE46E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5C1C8C512A265379004EE46E /* BloodCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterView.swift; sourceTree = "<group>"; };
 		5C1C8C532A2653CD004EE46E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		5C1C8C562A265401004EE46E /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
-		5C1C8C582A26543B004EE46E /* DonationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListView.swift; sourceTree = "<group>"; };
+		5C1C8C562A265401004EE46E /* DonationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListView.swift; sourceTree = "<group>"; };
+		5C1C8C582A26543B004EE46E /* AddDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonation.swift; sourceTree = "<group>"; };
 		5C1C8C5A2A265F97004EE46E /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5C1C8C5E2A266B7B004EE46E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -85,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C6927432A27AA76005B6D85 /* Alamofire in Frameworks */,
+				5C03B8FE2A27C0D400955672 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +133,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C03B8F72A27BD8A00955672 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				5C03B9122A28CC2700955672 /* RegisterErrorModel.swift */,
+				5C03B91D2A28F97900955672 /* LoginError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		5C03B9072A27CA7B00955672 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				5C03B9082A27CA9200955672 /* HttpRouter.swift */,
+				5C03B90A2A27CAA600955672 /* HttpService.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		5C03B91C2A28F2E500955672 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5C21FA2529D9B89400EE5B93 /* LoginView.swift */,
+				5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */,
+				5C1C8C5A2A265F97004EE46E /* ResetPasswordView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5C1C8C4E2A265310004EE46E /* BloodCenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +176,7 @@
 		5C1C8C552A2653EF004EE46E /* DonationList */ = {
 			isa = PBXGroup;
 			children = (
-				5C1C8C582A26543B004EE46E /* DonationListView.swift */,
+				5C1C8C562A265401004EE46E /* DonationListView.swift */,
 			);
 			path = DonationList;
 			sourceTree = "<group>";
@@ -129,6 +184,7 @@
 		5C1EF8A82A16D61A00F5771E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5C3D4D6C2A31008D00A687C7 /* API */,
 				5C1EF8AE2A16D6F800F5771E /* Login */,
 				5C1EF8AD2A16D6EF00F5771E /* Onboarding */,
 				5C1EF8A92A16D62300F5771E /* Home */,
@@ -162,7 +218,10 @@
 		5C1EF8AC2A16D65F00F5771E /* Donation */ = {
 			isa = PBXGroup;
 			children = (
-				5C1C8C562A265401004EE46E /* DonationView.swift */,
+				5C1C8C582A26543B004EE46E /* AddDonation.swift */,
+				5C03B9292A29750000955672 /* DonationView.swift */,
+				5C03B9252A296F5700955672 /* DetailDonation.swift */,
+				5C03B9272A296FBA00955672 /* AddDisqualification.swift */,
 			);
 			path = Donation;
 			sourceTree = "<group>";
@@ -178,11 +237,24 @@
 		5C1EF8AE2A16D6F800F5771E /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5C21FA2529D9B89400EE5B93 /* LoginView.swift */,
-				5C1C8C5A2A265F97004EE46E /* ResetPasswordView.swift */,
-				5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */,
+				5C03B91C2A28F2E500955672 /* Views */,
+				5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */,
+				5C03B90E2A28B4B800955672 /* AuthHttpRouter.swift */,
+				5C03B90C2A27E95500955672 /* AuthHttpService.swift */,
+				5C03B9032A27C90A00955672 /* AuthService.swift */,
+				5C03B9052A27C93B00955672 /* AuthAPI.swift */,
+				5C03B9102A28B81C00955672 /* AuthModel.swift */,
+				5C03B8F72A27BD8A00955672 /* Errors */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		5C3D4D6C2A31008D00A687C7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5C03B9072A27CA7B00955672 /* HTTP */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		5CD42FD429A276B8007C4EF0 = {
@@ -260,7 +332,7 @@
 			);
 			name = BloodDonor;
 			packageProductDependencies = (
-				0C6927422A27AA76005B6D85 /* Alamofire */,
+				5C03B8FD2A27C0D400955672 /* Alamofire */,
 			);
 			productName = BloodDonor;
 			productReference = 5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */;
@@ -335,7 +407,7 @@
 			);
 			mainGroup = 5CD42FD429A276B8007C4EF0;
 			packageReferences = (
-				0C6927412A27AA76005B6D85 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5C03B8FC2A27C0D400955672 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 5CD42FDE29A276B8007C4EF0 /* Products */;
 			projectDirPath = "";
@@ -381,7 +453,17 @@
 			files = (
 				5C1C8C522A265379004EE46E /* BloodCenterView.swift in Sources */,
 				5C1C8C5D2A265FA1004EE46E /* RegisterView.swift in Sources */,
+				5C03B9092A27CA9200955672 /* HttpRouter.swift in Sources */,
 				5C21FA2629D9B89400EE5B93 /* LoginView.swift in Sources */,
+				5C03B9062A27C93B00955672 /* AuthAPI.swift in Sources */,
+				5C1C8C502A265337004EE46E /* HomeView.swift in Sources */,
+				5C1C8C5B2A265F97004EE46E /* ResetPasswordView.swift in Sources */,
+				5C1C8C432A23DD9E004EE46E /* ContentView.swift in Sources */,
+				5C03B90F2A28B4B800955672 /* AuthHttpRouter.swift in Sources */,
+				5C1C8C592A26543B004EE46E /* AddDonation.swift in Sources */,
+				5C03B9002A27C41A00955672 /* AuthorizationInteractor.swift in Sources */,
+				5C03B90B2A27CAA600955672 /* HttpService.swift in Sources */,
+				5C03B92A2A29750000955672 /* DonationView.swift in Sources */,
 				0C69274A2A27BDB4005B6D85 /* NextDonationView.swift in Sources */,
 				0C6927452A27AAD5005B6D85 /* BloodCenter.swift in Sources */,
 				0C4BB5F92A2AA1640062B7A5 /* BloodCenterDetail.swift in Sources */,
@@ -393,10 +475,17 @@
 				0C4BB5FB2A2AA2A60062B7A5 /* BloodCenterMapView.swift in Sources */,
 				0C6927472A27BC5A005B6D85 /* BloodCenterRow.swift in Sources */,
 				5C1C8C542A2653CD004EE46E /* ProfileView.swift in Sources */,
-				5C1C8C572A265401004EE46E /* DonationView.swift in Sources */,
+				5C1C8C572A265401004EE46E /* DonationListView.swift in Sources */,
+				5C03B90D2A27E95500955672 /* AuthHttpService.swift in Sources */,
+				5C03B9132A28CC2700955672 /* RegisterErrorModel.swift in Sources */,
 				5C1C8C3F2A23DD6D004EE46E /* BloodDonorApp.swift in Sources */,
 				0C69274D2A27BE21005B6D85 /* BloodTypeModal.swift in Sources */,
 				5C1C8C5F2A266B7B004EE46E /* OnboardingView.swift in Sources */,
+				5C03B9282A296FBA00955672 /* AddDisqualification.swift in Sources */,
+				5C03B9042A27C90A00955672 /* AuthService.swift in Sources */,
+				5C03B9112A28B81C00955672 /* AuthModel.swift in Sources */,
+				5C03B9262A296F5700955672 /* DetailDonation.swift in Sources */,
+				5C03B91E2A28F97900955672 /* LoginError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +661,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,6 +689,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,9 +821,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0C6927412A27AA76005B6D85 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		5C03B8FC2A27C0D400955672 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
@@ -741,9 +832,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C6927422A27AA76005B6D85 /* Alamofire */ = {
+		5C03B8FD2A27C0D400955672 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0C6927412A27AA76005B6D85 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 5C03B8FC2A27C0D400955672 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
