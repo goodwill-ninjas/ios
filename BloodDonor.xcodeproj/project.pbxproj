@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4BB5F92A2AA1640062B7A5 /* BloodCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */; };
+		0C4BB5FB2A2AA2A60062B7A5 /* BloodCenterMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */; };
+		0C6927452A27AAD5005B6D85 /* BloodCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927442A27AAD5005B6D85 /* BloodCenter.swift */; };
+		0C6927472A27BC5A005B6D85 /* BloodCenterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927462A27BC5A005B6D85 /* BloodCenterRow.swift */; };
+		0C69274A2A27BDB4005B6D85 /* NextDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927482A27BDB4005B6D85 /* NextDonationView.swift */; };
+		0C69274B2A27BDB4005B6D85 /* BloodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927492A27BDB4005B6D85 /* BloodImageView.swift */; };
+		0C69274D2A27BE21005B6D85 /* BloodTypeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69274C2A27BE21005B6D85 /* BloodTypeModal.swift */; };
 		5C03B8FE2A27C0D400955672 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5C03B8FD2A27C0D400955672 /* Alamofire */; };
 		5C03B9002A27C41A00955672 /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */; };
 		5C03B9042A27C90A00955672 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9032A27C90A00955672 /* AuthService.swift */; };
@@ -21,14 +28,6 @@
 		5C03B9262A296F5700955672 /* DetailDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9252A296F5700955672 /* DetailDonation.swift */; };
 		5C03B9282A296FBA00955672 /* AddDisqualification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9272A296FBA00955672 /* AddDisqualification.swift */; };
 		5C03B92A2A29750000955672 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C03B9292A29750000955672 /* DonationView.swift */; };
-		0C4BB5F92A2AA1640062B7A5 /* BloodCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */; };
-		0C4BB5FB2A2AA2A60062B7A5 /* BloodCenterMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */; };
-		0C6927432A27AA76005B6D85 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0C6927422A27AA76005B6D85 /* Alamofire */; };
-		0C6927452A27AAD5005B6D85 /* BloodCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927442A27AAD5005B6D85 /* BloodCenter.swift */; };
-		0C6927472A27BC5A005B6D85 /* BloodCenterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927462A27BC5A005B6D85 /* BloodCenterRow.swift */; };
-		0C69274A2A27BDB4005B6D85 /* NextDonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927482A27BDB4005B6D85 /* NextDonationView.swift */; };
-		0C69274B2A27BDB4005B6D85 /* BloodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6927492A27BDB4005B6D85 /* BloodImageView.swift */; };
-		0C69274D2A27BE21005B6D85 /* BloodTypeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69274C2A27BE21005B6D85 /* BloodTypeModal.swift */; };
 		5C1C8C3F2A23DD6D004EE46E /* BloodDonorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C3E2A23DD6D004EE46E /* BloodDonorApp.swift */; };
 		5C1C8C432A23DD9E004EE46E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C422A23DD9E004EE46E /* ContentView.swift */; };
 		5C1C8C502A265337004EE46E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C4F2A265337004EE46E /* HomeView.swift */; };
@@ -40,6 +39,17 @@
 		5C1C8C5D2A265FA1004EE46E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */; };
 		5C1C8C5F2A266B7B004EE46E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1C8C5E2A266B7B004EE46E /* OnboardingView.swift */; };
 		5C21FA2629D9B89400EE5B93 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21FA2529D9B89400EE5B93 /* LoginView.swift */; };
+		5C3D4D732A31B95900A687C7 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D722A31B95900A687C7 /* RealmDatabase.swift */; };
+		5C3D4D762A31BA6100A687C7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3D4D752A31BA6100A687C7 /* Realm */; };
+		5C3D4D782A31BA6100A687C7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C3D4D772A31BA6100A687C7 /* RealmSwift */; };
+		5C3D4D7B2A31BAAF00A687C7 /* RealmTokenUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D7A2A31BAAF00A687C7 /* RealmTokenUser.swift */; };
+		5C3D4D7D2A31BBF300A687C7 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D7C2A31BBF300A687C7 /* UserToken.swift */; };
+		5C3D4D7F2A31BDCB00A687C7 /* AuthDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D7E2A31BDCB00A687C7 /* AuthDB.swift */; };
+		5C3D4D812A31BE5F00A687C7 /* RealmDatabase+AuthDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D802A31BE5F00A687C7 /* RealmDatabase+AuthDB.swift */; };
+		5C3D4D832A31EDB000A687C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D822A31EDB000A687C7 /* User.swift */; };
+		5C3D4D852A31EF3B00A687C7 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D842A31EF3B00A687C7 /* ValidationError.swift */; };
+		5C3D4D872A31F1E500A687C7 /* ValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D862A31F1E500A687C7 /* ValidationResponse.swift */; };
+		5C3D4D892A320A2000A687C7 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3D4D882A320A2000A687C7 /* RealmUser.swift */; };
 		5CD42FEA29A276B9007C4EF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD42FE929A276B9007C4EF0 /* Assets.xcassets */; };
 		5CD42FED29A276B9007C4EF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD42FEB29A276B9007C4EF0 /* LaunchScreen.storyboard */; };
 		5CD42FF829A276B9007C4EF0 /* BloodDonorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD42FF729A276B9007C4EF0 /* BloodDonorTests.swift */; };
@@ -65,6 +75,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterDetail.swift; sourceTree = "<group>"; };
+		0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterMapView.swift; sourceTree = "<group>"; };
+		0C6927442A27AAD5005B6D85 /* BloodCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenter.swift; sourceTree = "<group>"; };
+		0C6927462A27BC5A005B6D85 /* BloodCenterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterRow.swift; sourceTree = "<group>"; };
+		0C6927482A27BDB4005B6D85 /* NextDonationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextDonationView.swift; path = BloodDonor/Views/NextDonationView.swift; sourceTree = SOURCE_ROOT; };
+		0C6927492A27BDB4005B6D85 /* BloodImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodImageView.swift; path = BloodDonor/Views/BloodImageView.swift; sourceTree = SOURCE_ROOT; };
+		0C69274C2A27BE21005B6D85 /* BloodTypeModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodTypeModal.swift; path = BloodDonor/Model/BloodTypeModal.swift; sourceTree = SOURCE_ROOT; };
 		5C03B8FF2A27C41A00955672 /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		5C03B9032A27C90A00955672 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5C03B9052A27C93B00955672 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -78,13 +95,6 @@
 		5C03B9252A296F5700955672 /* DetailDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDonation.swift; sourceTree = "<group>"; };
 		5C03B9272A296FBA00955672 /* AddDisqualification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualification.swift; sourceTree = "<group>"; };
 		5C03B9292A29750000955672 /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
-		0C4BB5F82A2AA1640062B7A5 /* BloodCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterDetail.swift; sourceTree = "<group>"; };
-		0C4BB5FA2A2AA2A60062B7A5 /* BloodCenterMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterMapView.swift; sourceTree = "<group>"; };
-		0C6927442A27AAD5005B6D85 /* BloodCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenter.swift; sourceTree = "<group>"; };
-		0C6927462A27BC5A005B6D85 /* BloodCenterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenterRow.swift; sourceTree = "<group>"; };
-		0C6927482A27BDB4005B6D85 /* NextDonationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextDonationView.swift; path = BloodDonor/Views/NextDonationView.swift; sourceTree = SOURCE_ROOT; };
-		0C6927492A27BDB4005B6D85 /* BloodImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodImageView.swift; path = BloodDonor/Views/BloodImageView.swift; sourceTree = SOURCE_ROOT; };
-		0C69274C2A27BE21005B6D85 /* BloodTypeModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodTypeModal.swift; path = BloodDonor/Model/BloodTypeModal.swift; sourceTree = SOURCE_ROOT; };
 		5C1C8C3E2A23DD6D004EE46E /* BloodDonorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodDonorApp.swift; sourceTree = "<group>"; };
 		5C1C8C422A23DD9E004EE46E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C1C8C4F2A265337004EE46E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -96,6 +106,15 @@
 		5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5C1C8C5E2A266B7B004EE46E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		5C21FA2529D9B89400EE5B93 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5C3D4D722A31B95900A687C7 /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		5C3D4D7A2A31BAAF00A687C7 /* RealmTokenUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTokenUser.swift; sourceTree = "<group>"; };
+		5C3D4D7C2A31BBF300A687C7 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		5C3D4D7E2A31BDCB00A687C7 /* AuthDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDB.swift; sourceTree = "<group>"; };
+		5C3D4D802A31BE5F00A687C7 /* RealmDatabase+AuthDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmDatabase+AuthDB.swift"; sourceTree = "<group>"; };
+		5C3D4D822A31EDB000A687C7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C3D4D842A31EF3B00A687C7 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		5C3D4D862A31F1E500A687C7 /* ValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResponse.swift; sourceTree = "<group>"; };
+		5C3D4D882A320A2000A687C7 /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodDonor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD42FE929A276B9007C4EF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CD42FEC29A276B9007C4EF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3D4D782A31BA6100A687C7 /* RealmSwift in Frameworks */,
+				5C3D4D762A31BA6100A687C7 /* Realm in Frameworks */,
 				5C03B8FE2A27C0D400955672 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +159,7 @@
 			children = (
 				5C03B9122A28CC2700955672 /* RegisterErrorModel.swift */,
 				5C03B91D2A28F97900955672 /* LoginError.swift */,
+				5C3D4D842A31EF3B00A687C7 /* ValidationError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -157,6 +179,7 @@
 				5C21FA2529D9B89400EE5B93 /* LoginView.swift */,
 				5C1C8C5C2A265FA1004EE46E /* RegisterView.swift */,
 				5C1C8C5A2A265F97004EE46E /* ResetPasswordView.swift */,
+				5C3D4D822A31EDB000A687C7 /* User.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,7 +209,6 @@
 			children = (
 				5C3D4D6C2A31008D00A687C7 /* API */,
 				5C1EF8AE2A16D6F800F5771E /* Login */,
-				5C1EF8AD2A16D6EF00F5771E /* Onboarding */,
 				5C1EF8A92A16D62300F5771E /* Home */,
 				5C1EF8AA2A16D62A00F5771E /* Profile */,
 				5C1EF8AC2A16D65F00F5771E /* Donation */,
@@ -244,6 +266,8 @@
 				5C03B9032A27C90A00955672 /* AuthService.swift */,
 				5C03B9052A27C93B00955672 /* AuthAPI.swift */,
 				5C03B9102A28B81C00955672 /* AuthModel.swift */,
+				5C3D4D862A31F1E500A687C7 /* ValidationResponse.swift */,
+				5C1EF8AD2A16D6EF00F5771E /* Onboarding */,
 				5C03B8F72A27BD8A00955672 /* Errors */,
 			);
 			path = Login;
@@ -255,6 +279,27 @@
 				5C03B9072A27CA7B00955672 /* HTTP */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		5C3D4D712A31B93700A687C7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				5C3D4D792A31BA8200A687C7 /* Entity */,
+				5C3D4D722A31B95900A687C7 /* RealmDatabase.swift */,
+				5C3D4D7C2A31BBF300A687C7 /* UserToken.swift */,
+				5C3D4D7E2A31BDCB00A687C7 /* AuthDB.swift */,
+				5C3D4D802A31BE5F00A687C7 /* RealmDatabase+AuthDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		5C3D4D792A31BA8200A687C7 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5C3D4D7A2A31BAAF00A687C7 /* RealmTokenUser.swift */,
+				5C3D4D882A320A2000A687C7 /* RealmUser.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		5CD42FD429A276B8007C4EF0 = {
@@ -282,6 +327,7 @@
 			children = (
 				5C1C8C3E2A23DD6D004EE46E /* BloodDonorApp.swift */,
 				5C1C8C422A23DD9E004EE46E /* ContentView.swift */,
+				5C3D4D712A31B93700A687C7 /* Database */,
 				5C1EF8A82A16D61A00F5771E /* Modules */,
 				5CD42FEE29A276B9007C4EF0 /* Info.plist */,
 				5CD4301029A2AF0E007C4EF0 /* Files */,
@@ -333,6 +379,8 @@
 			name = BloodDonor;
 			packageProductDependencies = (
 				5C03B8FD2A27C0D400955672 /* Alamofire */,
+				5C3D4D752A31BA6100A687C7 /* Realm */,
+				5C3D4D772A31BA6100A687C7 /* RealmSwift */,
 			);
 			productName = BloodDonor;
 			productReference = 5CD42FDD29A276B8007C4EF0 /* BloodDonor.app */;
@@ -408,6 +456,7 @@
 			mainGroup = 5CD42FD429A276B8007C4EF0;
 			packageReferences = (
 				5C03B8FC2A27C0D400955672 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5C3D4D742A31BA6100A687C7 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 5CD42FDE29A276B8007C4EF0 /* Products */;
 			projectDirPath = "";
@@ -457,21 +506,29 @@
 				5C21FA2629D9B89400EE5B93 /* LoginView.swift in Sources */,
 				5C03B9062A27C93B00955672 /* AuthAPI.swift in Sources */,
 				5C1C8C502A265337004EE46E /* HomeView.swift in Sources */,
+				5C3D4D892A320A2000A687C7 /* RealmUser.swift in Sources */,
 				5C1C8C5B2A265F97004EE46E /* ResetPasswordView.swift in Sources */,
 				5C1C8C432A23DD9E004EE46E /* ContentView.swift in Sources */,
 				5C03B90F2A28B4B800955672 /* AuthHttpRouter.swift in Sources */,
 				5C1C8C592A26543B004EE46E /* AddDonation.swift in Sources */,
+				5C3D4D7B2A31BAAF00A687C7 /* RealmTokenUser.swift in Sources */,
 				5C03B9002A27C41A00955672 /* AuthorizationInteractor.swift in Sources */,
+				5C3D4D872A31F1E500A687C7 /* ValidationResponse.swift in Sources */,
+				5C3D4D7D2A31BBF300A687C7 /* UserToken.swift in Sources */,
 				5C03B90B2A27CAA600955672 /* HttpService.swift in Sources */,
 				5C03B92A2A29750000955672 /* DonationView.swift in Sources */,
 				0C69274A2A27BDB4005B6D85 /* NextDonationView.swift in Sources */,
 				0C6927452A27AAD5005B6D85 /* BloodCenter.swift in Sources */,
+				5C3D4D7F2A31BDCB00A687C7 /* AuthDB.swift in Sources */,
+				5C3D4D832A31EDB000A687C7 /* User.swift in Sources */,
 				0C4BB5F92A2AA1640062B7A5 /* BloodCenterDetail.swift in Sources */,
 				5C1C8C502A265337004EE46E /* HomeView.swift in Sources */,
 				5C1C8C5B2A265F97004EE46E /* ResetPasswordView.swift in Sources */,
 				5C1C8C432A23DD9E004EE46E /* ContentView.swift in Sources */,
+				5C3D4D852A31EF3B00A687C7 /* ValidationError.swift in Sources */,
+				5C3D4D812A31BE5F00A687C7 /* RealmDatabase+AuthDB.swift in Sources */,
 				0C69274B2A27BDB4005B6D85 /* BloodImageView.swift in Sources */,
-				5C1C8C592A26543B004EE46E /* DonationListView.swift in Sources */,
+				5C1C8C592A26543B004EE46E /* AddDonation.swift in Sources */,
 				0C4BB5FB2A2AA2A60062B7A5 /* BloodCenterMapView.swift in Sources */,
 				0C6927472A27BC5A005B6D85 /* BloodCenterRow.swift in Sources */,
 				5C1C8C542A2653CD004EE46E /* ProfileView.swift in Sources */,
@@ -483,6 +540,7 @@
 				5C1C8C5F2A266B7B004EE46E /* OnboardingView.swift in Sources */,
 				5C03B9282A296FBA00955672 /* AddDisqualification.swift in Sources */,
 				5C03B9042A27C90A00955672 /* AuthService.swift in Sources */,
+				5C3D4D732A31B95900A687C7 /* RealmDatabase.swift in Sources */,
 				5C03B9112A28B81C00955672 /* AuthModel.swift in Sources */,
 				5C03B9262A296F5700955672 /* DetailDonation.swift in Sources */,
 				5C03B91E2A28F97900955672 /* LoginError.swift in Sources */,
@@ -829,6 +887,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		5C3D4D742A31BA6100A687C7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -836,6 +902,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C03B8FC2A27C0D400955672 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		5C3D4D752A31BA6100A687C7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C3D4D742A31BA6100A687C7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		5C3D4D772A31BA6100A687C7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C3D4D742A31BA6100A687C7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

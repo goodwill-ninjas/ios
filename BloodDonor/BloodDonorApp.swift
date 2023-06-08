@@ -5,7 +5,7 @@ struct BloodDonorApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }

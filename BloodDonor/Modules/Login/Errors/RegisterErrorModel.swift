@@ -10,10 +10,12 @@ import Foundation
 // Define a struct named RegisterErrorModel that conforms to the Codable protocol.
 struct RegisterErrorModel: Codable {
     let validationErrors: ValidationErrors  // A property that represents validation errors.
+    let error: String
     
     // Define an enumeration CodingKeys to customize the coding keys for decoding.
     enum CodingKeys: String, CodingKey {
         case validationErrors = "message"  // Map "message" key in JSON to validationErrors property.
+        case error
     }
 }
 
