@@ -17,11 +17,13 @@ enum AuthResult<T> {
 class AuthorizationInteractor {
     
     private let authApi: AuthAPI  // An instance of AuthAPI used for authorization.
+    private let database: AuthDB
     static let shared: AuthorizationInteractor = AuthorizationInteractor()  // A shared singleton instance of AuthorizationInteractor.
     
     // Private initializer to enforce the use of the shared singleton instance.
-    private init(authApi: AuthAPI = AuthService.shared) {
+    private init(authApi: AuthAPI = AuthService.shared, database: AuthDB = RealmDatabase.shared) {
         self.authApi = authApi
+        self.database = database
     }
 }
 
@@ -48,11 +50,22 @@ extension AuthorizationInteractor {
         self.authApi.login(
             email: email,
             password: password,
-            success: { token in
+            success: { [database] (token) in
+                _ = database.saveToken(userToken: UserToken(accessToken: token, email: email, loggedIn: true))
                 completion(.success(result: token))
             }) { (error) in
                 completion(.failure(error: error))  // Call the completion handler with a failure and an error message.
             }
+    }
+    
+    func validate(usingToken token: String, completion: @escaping (AuthResult<User>) -> Void) -> Void {
+        self.authApi.validate(token: token,
+                              success: { [database] (user) in
+            _ = database.saveUser(usingUser: user)
+            completion(.success(result: user))
+        }) { (error) in
+            completion(.failure(error: error))
+        }
     }
 }
 

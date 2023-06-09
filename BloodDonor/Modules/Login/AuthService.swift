@@ -79,22 +79,40 @@ extension AuthService: AuthAPI {
                                 // Attempt to decode the error response model.
                                 let authError = try JSONDecoder().decode(RegisterErrorModel.self, from: data)
                                 
+                                // Access the error message array from the validationErrors property.
+                                let errorMessages = authError.validationErrors
+                                
                                 // Check if individual error messages exist and invoke the failure closure accordingly.
-                                if let emailError = authError.validationErrors.email?.first {
-                                    failure(emailError)
+                                if let emailErrors = errorMessages.email {
+                                    for emailError in emailErrors {
+                                        failure(emailError)
+                                    }
                                 }
-                                if let usernameError = authError.validationErrors.username?.first {
-                                    failure(usernameError)
+                                if let usernameErrors = errorMessages.username {
+                                    for usernameError in usernameErrors {
+                                        failure(usernameError)
+                                    }
                                 }
-                                if let passwordError = authError.validationErrors.password?.first {
-                                    failure(passwordError)
+                                
+                                if let passwordErrors = errorMessages.password {
+                                    for passwordError in passwordErrors {
+                                        failure(passwordError)
+                                    }
                                 }
-                                if let blood_typeError = authError.validationErrors.blood_type?.first {
-                                    failure(blood_typeError)
+                                
+                                if let bloodTypeErrors = errorMessages.blood_type {
+                                    for bloodTypeError in bloodTypeErrors {
+                                        failure(bloodTypeError)
+                                    }
                                 }
-                                if let genderError = authError.validationErrors.gender?.first {
-                                    failure(genderError)
+                                
+                                if let genderErrors = errorMessages.gender {
+                                    for genderError in genderErrors {
+                                        failure(genderError)
+                                    }
                                 }
+                                // Handle the general error message.
+                                failure(authError.error)
                             }
                         } catch {
                             print("Registration parsing failed with error - \(error.localizedDescription)")
@@ -127,6 +145,43 @@ extension AuthService: AuthAPI {
         } catch {
             print("Registration failed with error = \(error.localizedDescription)")
             failure("Registration failed with error")
+        }
+    }
+    
+    func validate(token: String,
+                  success: @escaping (User) -> Void,
+                  failure: @escaping (String) -> Void) {
+        do {
+            
+            try AuthHttpRouter
+                .validate(token: token)
+                .request(usingHttpService: httpService)
+                .responseJSON { (result) in
+                    
+                    guard result.response?.statusCode == 200 else {
+                        if let data = result.data {
+                            do {
+                                let logoutError = try JSONDecoder().decode(ValidationError.self, from: data)
+                                failure(logoutError.message)
+                            } catch {
+                                failure("Token validation failed = \(error)")
+                            }
+                        }
+                        return
+                    }
+                    
+                    if let responseData = result.data {
+                        do {
+                            let validationResponse = try
+                            JSONDecoder().decode(ValidationResponse.self, from: responseData)
+                            success(validationResponse.user)
+                        } catch {
+                            failure("Token validation failure")
+                        }
+                    }
+                }
+        } catch {
+            
         }
     }
 }

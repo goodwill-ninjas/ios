@@ -11,6 +11,7 @@ import SwiftUI
 enum AuthHttpRouter {
     case login(AuthModel)
     case register(AuthModel)
+    case validate(token: String)
 }
 
 // Extend the AuthHttpRouter enumeration to conform to the HttpRouter protocol.
@@ -28,6 +29,8 @@ extension AuthHttpRouter: HttpRouter {
             return "/api/auth/login"
         case .register:
             return "/api/auth/register"
+        case .validate:
+            return "/api/users"
         }
     }
     
@@ -36,6 +39,8 @@ extension AuthHttpRouter: HttpRouter {
         switch self {
         case .login, .register:
             return .post
+        case .validate:
+            return .get
         }
     }
     
@@ -44,7 +49,12 @@ extension AuthHttpRouter: HttpRouter {
         switch self {
         case .login, .register:
             return [
-                "Content-Type": "application/json; charset=UTF-8"
+                "content-type": "application/json; charset=UTF-8"
+            ]
+        case .validate(let token):
+            return [
+                "authorization": "\(token)",
+                "content-type": "application/json; charset=UTF-8"
             ]
         }
     }
@@ -60,6 +70,8 @@ extension AuthHttpRouter: HttpRouter {
             
         case .login(let user), .register(let user):
             return try JSONEncoder().encode(user)
+            case .validate:
+            return nil
         }
     }
 }
