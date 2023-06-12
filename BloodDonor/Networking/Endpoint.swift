@@ -26,11 +26,11 @@ enum Endpoint {
         case .addDonation:
             return "/api/donations"
         case .userFeat:
-            return "/api/users/{id}/feats"
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId()!)/feats"
         case .userDonations:
-            return "/api/users/{id}/donations"
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId()!)/donations"
         case .getUser:
-            return "/api/users/{id}"
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId()!)"
         case .getFeats:
             return "/api/feats"
         }

@@ -34,7 +34,7 @@ struct AddDonationView: View {
                             ProgressView()
                         } else {
                             Text("Add Donation")
-                            addDonation()
+                            // addDonation()
                         }
                     }
                     .disabled(donationVM.addDonationPending)
