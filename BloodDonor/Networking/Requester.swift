@@ -81,7 +81,13 @@ class Requester {
     }
     
     func getUserDonations(userId: Int, onResult: @escaping (Result<[Donation]>) -> Void) {
-        let url = Endpoint.userDonations.absoluteURL
+        var url = Endpoint
+            .userDonations
+            .absoluteURL
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("\(userId)")
+            .appendingPathComponent("donations")
         let request = formRequest(url: url, data: Data(), method: "GET")
         self.request(request: request, onResult: onResult)
     }
