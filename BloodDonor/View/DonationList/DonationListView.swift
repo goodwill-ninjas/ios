@@ -24,7 +24,7 @@ struct DonationListView: View {
                             Text(trimDate(userDonation.donated_at))
                                 .font(.caption2)
                                 .italic()
-
+                            
                             if (userDonation.details != nil) {
                                 Text("\n\(userDonation.details!)")
                                     .font(.caption)
@@ -38,7 +38,7 @@ struct DonationListView: View {
                             Text(trimDate(userDonation.donated_at))
                                 .font(.caption2)
                                 .italic()
-                                                       
+                            
                             if(userDonation.hemoglobin != nil ||
                                userDonation.blood_pressure != nil) {
                                 Spacer()
@@ -89,6 +89,9 @@ struct DonationListView: View {
                             }
                         }
                     }
+                }
+                .onAppear() {
+                    donationList.getUserDonations()
                 }
             case .error:
                 Spacer()

@@ -15,13 +15,16 @@ class DonationListViewModel: ObservableObject {
     @Published var registerPending = false
     @Published var alert: IdentifiableAlert?
     
+    init () {
+        getUserDonations()
+    }
+    
     func getUserDonations() {
         withAnimation {
             loadingState = .loading
         }
         DispatchQueue.global(qos: .userInitiated).async {
             Requester.shared.getUserDonations() { [self] result in
-                print("result \(self)")
                 withAnimation {
                     registerPending = false
                 }
