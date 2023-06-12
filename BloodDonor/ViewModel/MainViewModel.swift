@@ -34,15 +34,13 @@ class MainViewModel: ObservableObject {
                 case .success(let user):
                     do {
                         let jwt = try decode(jwt: user.token)
-                        if let context = jwt.body["context"] as? [String: Any],
-                           let user = context["user"] as? [String: Any],
-                           let userId = user["userId"] as? Int {
-                            print(userId)
-                        }
-                        if let context = jwt.body["context"] as? [String: Any],
-                           let user = context["user"] as? [String: Any],
-                           let displayName = user["displayName"] as? String {
-                            print(displayName)
+                        if let userId = decodeJWTforUserID(jwtToken: user.token) {
+                            if let displayName = extractDisplayNameFromJWT(jwtToken: user.token) {
+                                UserDefaultsWorker.shared.saveAuthTokens(tokens: user.getTokensInfo(), userId: userId, displayName: displayName)
+//                                if let userId = UserDefaultsWorker.shared.getUserId() {
+//                                    print("User ID:", userId)
+//                                }
+                            }
                         }
                     } catch let error {
                         // Handle the error thrown by the decode function

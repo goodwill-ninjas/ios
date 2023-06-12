@@ -5,11 +5,12 @@ class Requester {
     static let shared = Requester()
 
     private var accessToken = UserDefaultsWorker.shared.getAccessToken()
+
     
     private init() {}
     
-    private func onTokensRefreshed(tokens: TokensInfo) {
-        UserDefaultsWorker.shared.saveAuthTokens(tokens: tokens)
+    private func onTokensRefreshed(tokens: TokensInfo, userId: Int, displayName: String) {
+        UserDefaultsWorker.shared.saveAuthTokens(tokens: tokens, userId: userId, displayName: displayName)
         accessToken = TokenInfo(token: tokens.token)
     }
     
@@ -45,7 +46,18 @@ class Requester {
     
     private func handleAuthResponse(response: Result<User>, onResult: @escaping (Result<User>) -> Void) {
         if case .success(let user) = response {
-            self.onTokensRefreshed(tokens: user.getTokensInfo())
+            let jwtToken = user.token
+            if let userId = decodeJWTforUserID(jwtToken: jwtToken) {
+                if let displayName = extractDisplayNameFromJWT(jwtToken: jwtToken) {
+                    self.onTokensRefreshed(tokens: user.getTokensInfo(), userId: userId, displayName: displayName)
+                } else {
+                    // Handle the case when extracting the displayName from JWT fails
+                    // Show an error message or handle the error appropriately
+                }
+            } else {
+                // Handle the case when decoding the JWT for userId fails
+                // Show an error message or handle the error appropriately
+            }
         }
         onResult(response)
     }

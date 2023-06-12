@@ -46,6 +46,7 @@
 		5CF22D512A35DBD100A7BD85 /* BloodCenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */; };
 		5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610F52A3733F6000E39A3 /* AddDonation.swift */; };
 		5CF610F92A37385F000E39A3 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 5CF610F82A37385F000E39A3 /* JWTDecode */; };
+		5CF610FD2A375501000E39A3 /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610FC2A375501000E39A3 /* JWTDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenters.swift; sourceTree = "<group>"; };
 		5CF610F52A3733F6000E39A3 /* AddDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonation.swift; sourceTree = "<group>"; };
+		5CF610FC2A375501000E39A3 /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				5CCD800A2A34DCE500CCE8D5 /* Errors.swift */,
 				5CCD800E2A34DDBA00CCE8D5 /* UserDefaults.swift */,
 				5C250B412A34E3DF00EA63C1 /* Extensions.swift */,
+				5CF610FC2A375501000E39A3 /* JWTDecoder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5CCD800B2A34DCE500CCE8D5 /* Errors.swift in Sources */,
 				5CD5ECF42A34E5270012671F /* LoginVIew.swift in Sources */,
 				5CCD80092A34DCC600CCE8D5 /* ErrorResponse.swift in Sources */,
+				5CF610FD2A375501000E39A3 /* JWTDecoder.swift in Sources */,
 				5CA706BA2A34F6F000C319A7 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
