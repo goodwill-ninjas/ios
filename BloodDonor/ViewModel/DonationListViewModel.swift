@@ -21,6 +21,7 @@ class DonationListViewModel: ObservableObject {
         }
         DispatchQueue.global(qos: .userInitiated).async {
             Requester.shared.getUserDonations() { [self] result in
+                print("result \(self)")
                 withAnimation {
                     registerPending = false
                 }

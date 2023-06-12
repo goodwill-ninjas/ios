@@ -15,12 +15,79 @@ struct DonationListView: View {
             switch donationList.loadingState {
             case .finished:
                 List(donationList.userDonations, id: \.id) {
-                    userDonation in HStack() {
-                        Text("Donacyjka: ")
-                        Text(String(userDonation.id)).font(.headline)
-                        Text(userDonation.donated_type).font(.caption)
-                        Text(String(userDonation.amount)).font(.caption)
-                        Text(String(userDonation.disqualified)).font(.caption)
+                    userDonation in VStack() {
+                        if (userDonation.disqualified) {
+                            Text("🚫 Dyskwalifikacja na \(userDonation.disqualification_days!) dni  ")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            
+                            Text(trimDate(userDonation.donated_at))
+                                .font(.caption2)
+                                .italic()
+
+                            if (userDonation.details != nil) {
+                                Text("\n\(userDonation.details!)")
+                                    .font(.caption)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        } else {
+                            Text("🩸 \(translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            
+                            Text(trimDate(userDonation.donated_at))
+                                .font(.caption2)
+                                .italic()
+                                                       
+                            if(userDonation.hemoglobin != nil ||
+                               userDonation.blood_pressure != nil) {
+                                Spacer()
+                            }
+                            
+                            HStack() {
+                                if (userDonation.hemoglobin != nil) {
+                                    VStack() {
+                                        Text("Poziom hemoglobiny")
+                                            .font(.caption)
+                                            .bold()
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
+                                        Text("\(userDonation.hemoglobin!) g/l")
+                                            .font(.caption)
+                                            .italic()
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                }
+                                
+                                if (userDonation.blood_pressure != nil) {
+                                    VStack() {
+                                        Text("Ciśnienie krwi")
+                                            .font(.caption)
+                                            .bold()
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                        
+                                        Text("\(userDonation.blood_pressure!) mm Hg")
+                                            .font(.caption)
+                                            .italic()
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                    }
+                                }
+                            }
+                            
+                            if (userDonation.arm != nil) {
+                                Spacer()
+                                Text("Pobrano krew z \(conjugateArm(userDonation.details!)) ręki")
+                                    .font(.caption)
+                                    .italic()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            
+                            if (userDonation.details != nil) {
+                                Text("\n\(userDonation.details!)")
+                                    .font(.caption)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
                     }
                 }
             case .error:
@@ -53,7 +120,30 @@ struct DonationListView: View {
             .onAppear {
                 if donationList.userDonations.isEmpty {
                     donationList.getUserDonations()
-                }
             }
+        }
+    }
+    
+    func translateBloodType(type: String) -> String {
+        switch type {
+        case "whole":
+            return "Krew Pełna"
+        case "plasma":
+            return "Osocze"
+        case "platelet":
+            return "Płytki Krwi"
+        case "power":
+            return "Krwinki Czerwone"
+        default:
+            return "Krew"
+        }
+    }
+    
+    let trimDate: (String) -> String = { date in
+        return date.components(separatedBy: "T").first ?? ""
+    }
+    
+    let conjugateArm: (String) -> String = { arm in
+        return arm == "left" ? "lewej" : "prawej"
     }
 }
