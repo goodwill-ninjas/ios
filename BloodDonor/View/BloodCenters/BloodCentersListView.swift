@@ -7,38 +7,13 @@ struct BloodCentersListView: View {
         VStack {
             switch bloodCentersVm.checkProgress {
             case .finished:
-                ZStack {
-                    VStack(spacing: 0) {
-                        ScrollView {
-                            List(bloodCentersVm.bloodCenters, id: \.id) { bloodCenter in
-                                VStack(alignment: .leading) {
-                                    Text("🏥")
-                                    Text(bloodCenter.name)
-                                        .font(.headline)
-                                }
-                            }
-                        }
-                        
-                        VStack {
-                            Spacer()
-                            Button {
-                                bloodCentersVm.getBloodCenters()
-                            } label: {
-                                Image(systemName: "arrow.clockwise")
-                                    .renderingMode(.template)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(Color.white)
-                                    .frame(width: 30, height: 30)
-                                    .padding(10)
-                                    .background(Circle().fill(Color.black))
-                                    .padding(.bottom, 20)
-                            }
-                            .opacity(0.9)
-                        }
+                List(bloodCentersVm.bloodCenters, id: \.id) { bloodCenter in
+                    HStack() {
+                        Text("🏥")
+                        Text(bloodCenter.name)
+                            .font(.headline)
                     }
                 }
-                
             case .error:
                 Spacer()
                 Text("An error occurred while loading data")

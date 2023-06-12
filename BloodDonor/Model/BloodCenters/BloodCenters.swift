@@ -10,9 +10,9 @@ import Foundation
 struct BloodCenters: Codable {
     var id: Int
     var name: String
-    var streetName: String
-    var streetNumber: String
-    var postalCode: String
+    var street_name: String
+    var street_number: String
+    var postal_code: String
     var city: String
     var voivodeship: String
     var geo_coordinates: String
@@ -24,7 +24,8 @@ struct BloodCenters: Codable {
 }
 
 struct BloodCenterBankDetails: Codable {
-    var bloodType: String
+    var id: Int
+    var blood_type: String
     var capacity: String
-    var sourceDatetime: String
+    var source_datetime: String
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 class Requester {
-    
+ 
     static let shared = Requester()
 
     private var accessToken = UserDefaultsWorker.shared.getAccessToken()
@@ -68,15 +68,16 @@ class Requester {
         }
     }
     
-//    func getBloodCenter(onResult: @escaping (Result<[BloodCenters]>) -> Void) {
-//        let url = Endpoint.bloodCenters.absoluteURL
-//        let request = formRequest(url: url, data: Data(), method: "GET")
-//        self.request(request: request, onResult: onResult)
-//    }
-//    
+    func getBloodCenter(onResult: @escaping (Result<[BloodCenters]>) -> Void) {
+        let url = Endpoint.bloodCenters.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
     
     func request<T: Decodable>(request: URLRequest, onResult: @escaping (Result<T>) -> Void) {
         print("request called")
+        doRequest(request: request, onResult: onResult)
     }
     
     func doRequest<T: Decodable>(request: URLRequest, onResult: @escaping (Result<T>) -> Void) {

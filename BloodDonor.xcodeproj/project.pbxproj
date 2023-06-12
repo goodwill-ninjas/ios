@@ -44,7 +44,8 @@
 		5CF22D4D2A35AE3700A7BD85 /* DonationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */; };
 		5CF22D4F2A35C2E500A7BD85 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */; };
 		5CF22D512A35DBD100A7BD85 /* BloodCenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */; };
-		5CF610F32A3653A5000E39A3 /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */; };
+		5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610F52A3733F6000E39A3 /* AddDonation.swift */; };
+		5CF610F92A37385F000E39A3 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 5CF610F82A37385F000E39A3 /* JWTDecode */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +87,7 @@
 		5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListViewModel.swift; sourceTree = "<group>"; };
 		5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenters.swift; sourceTree = "<group>"; };
-		5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
+		5CF610F52A3733F6000E39A3 /* AddDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF610F92A37385F000E39A3 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +227,7 @@
 		5CCD7FF72A34D2B300CCE8D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5CF610F42A373398000E39A3 /* Donation */,
 				5C4D743A2A35A8C800591641 /* Auth */,
 				5C4D74392A35A8BE00591641 /* BloodCenters */,
 			);
@@ -265,7 +268,6 @@
 				5CCD800A2A34DCE500CCE8D5 /* Errors.swift */,
 				5CCD800E2A34DDBA00CCE8D5 /* UserDefaults.swift */,
 				5C250B412A34E3DF00EA63C1 /* Extensions.swift */,
-				5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +291,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5CF610F42A373398000E39A3 /* Donation */ = {
+			isa = PBXGroup;
+			children = (
+				5CF610F52A3733F6000E39A3 /* AddDonation.swift */,
+			);
+			path = Donation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +315,9 @@
 			dependencies = (
 			);
 			name = BloodDonor;
+			packageProductDependencies = (
+				5CF610F82A37385F000E39A3 /* JWTDecode */,
+			);
 			productName = BloodDonor;
 			productReference = 5CCD7FE62A34D2A700CCE8D5 /* BloodDonor.app */;
 			productType = "com.apple.product-type.application";
@@ -333,6 +346,9 @@
 				Base,
 			);
 			mainGroup = 5CCD7FDD2A34D2A600CCE8D5;
+			packageReferences = (
+				5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */,
+			);
 			productRefGroup = 5CCD7FE72A34D2A700CCE8D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -384,8 +400,8 @@
 				5C4D74442A35A9F700591641 /* DonationView.swift in Sources */,
 				5CD5ECF62A34E5310012671F /* RegisterView.swift in Sources */,
 				5CD5ECEF2A34E4CB0012671F /* MainViewModel.swift in Sources */,
+				5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */,
 				5CCD7FEA2A34D2A700CCE8D5 /* BloodDonorApp.swift in Sources */,
-				5CF610F32A3653A5000E39A3 /* JWTDecoder.swift in Sources */,
 				5C4D74422A35A9E200591641 /* DonationListView.swift in Sources */,
 				5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */,
 				5CCD80072A34DC2800CCE8D5 /* Authentication.swift in Sources */,
@@ -595,6 +611,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5CF610F82A37385F000E39A3 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CCD7FDE2A34D2A600CCE8D5 /* Project object */;
 }
