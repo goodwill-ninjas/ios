@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		538B7E602A3763900009A44F /* GetUserFeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E5F2A3763900009A44F /* GetUserFeats.swift */; };
 		538B7E622A3764C00009A44F /* FeatRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E612A3764C00009A44F /* FeatRank.swift */; };
+		538B7E662A3770C60009A44F /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E652A3770C60009A44F /* Donation.swift */; };
 		5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C250B412A34E3DF00EA63C1 /* Extensions.swift */; };
 		5C4D74312A35A7A100591641 /* AddDisqualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */; };
 		5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74332A35A7E700591641 /* BloodCentersListView.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		538B7E5F2A3763900009A44F /* GetUserFeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserFeats.swift; sourceTree = "<group>"; };
 		538B7E612A3764C00009A44F /* FeatRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatRank.swift; sourceTree = "<group>"; };
+		538B7E652A3770C60009A44F /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
 		5C250B412A34E3DF00EA63C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualificationView.swift; sourceTree = "<group>"; };
 		5C4D74332A35A7E700591641 /* BloodCentersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersListView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF610F52A3733F6000E39A3 /* AddDonation.swift */,
+				538B7E652A3770C60009A44F /* Donation.swift */,
 			);
 			path = Donation;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				5C4D743C2A35A90E00591641 /* BloodCenterMapView.swift in Sources */,
 				5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */,
 				5C4D74382A35A88200591641 /* BloodCentersViewModel.swift in Sources */,
+				538B7E662A3770C60009A44F /* Donation.swift in Sources */,
 				5CF22D492A35AE2100A7BD85 /* ProfileViewModel.swift in Sources */,
 				5CCD80012A34D3A200CCE8D5 /* Result.swift in Sources */,
 				5CCD800F2A34DDBA00CCE8D5 /* UserDefaults.swift in Sources */,

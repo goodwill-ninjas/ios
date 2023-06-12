@@ -80,6 +80,12 @@ class Requester {
         }
     }
     
+    func getUserDonations(dupa: Int, onResult: @escaping (Result<[Donation]>) -> Void) {
+        let url = Endpoint.userDonations.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
     func addDonation(donationBody: AddDonation, onResult: @escaping (Result<User>) -> Void) {
         let url = Endpoint.addDonation.absoluteURL
         let body = try! JSONEncoder().encode(donationBody)
