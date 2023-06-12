@@ -44,4 +44,31 @@ class BloodCentersViewModel: ObservableObject {
             }
         }
     }
+    
+    func firstIndexForCity(city: String) -> Int {
+            guard let index = bloodCenters.firstIndex(where: { $0.city == city }) else {
+                // Handle the case where the city is not found in the bloodCenters array
+                return 0 // Return a default index or handle the error appropriately
+            }
+            return index
+        }
+    
+    func getBloodCenterById(city: String) {
+        withAnimation {
+            checkProgress = .loading
+        }
+        print("getBloodCenterById called")
+        DispatchQueue.global(qos: .userInitiated).async {
+            Requester.shared.getBloodCenterbyId(city: self.city) { [self] result in
+                print("getBloodCenterById response: \(result)")
+                withAnimation {
+                    registerPending = false
+                }
+                switch result {
+                case .success(let bloodCenter):
+                    
+                }
+            }
+        }
+    }
 }

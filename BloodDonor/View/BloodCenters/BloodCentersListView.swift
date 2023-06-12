@@ -8,10 +8,14 @@ struct BloodCentersListView: View {
             switch bloodCentersVm.checkProgress {
             case .finished:
                 List(bloodCentersVm.bloodCenters, id: \.id) { bloodCenter in
-                    HStack() {
-                        Text("🏥")
-                        Text(bloodCenter.name)
-                            .font(.headline)
+                    NavigationLink {
+                        BloodCentersDetailView(city: bloodCenter.city)
+                    } label: {
+                        HStack() {
+                            Text("🏥")
+                            Text(bloodCenter.name)
+                                .font(.headline)
+                        }
                     }
                 }
             case .error:
