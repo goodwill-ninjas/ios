@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		538B7E602A3763900009A44F /* GetUserFeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E5F2A3763900009A44F /* GetUserFeats.swift */; };
+		538B7E622A3764C00009A44F /* FeatRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E612A3764C00009A44F /* FeatRank.swift */; };
 		5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C250B412A34E3DF00EA63C1 /* Extensions.swift */; };
 		5C4D74312A35A7A100591641 /* AddDisqualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */; };
 		5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74332A35A7E700591641 /* BloodCentersListView.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		538B7E5F2A3763900009A44F /* GetUserFeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserFeats.swift; sourceTree = "<group>"; };
+		538B7E612A3764C00009A44F /* FeatRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatRank.swift; sourceTree = "<group>"; };
 		5C250B412A34E3DF00EA63C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualificationView.swift; sourceTree = "<group>"; };
 		5C4D74332A35A7E700591641 /* BloodCentersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersListView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		538B7E5E2A37637B0009A44F /* Feat */ = {
+			isa = PBXGroup;
+			children = (
+				538B7E5F2A3763900009A44F /* GetUserFeats.swift */,
+				538B7E612A3764C00009A44F /* FeatRank.swift */,
+			);
+			path = Feat;
+			sourceTree = "<group>";
+		};
 		5C4D74322A35A7D200591641 /* BloodCenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +242,7 @@
 		5CCD7FF72A34D2B300CCE8D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				538B7E5E2A37637B0009A44F /* Feat */,
 				5CF610F42A373398000E39A3 /* Donation */,
 				5C4D743A2A35A8C800591641 /* Auth */,
 				5C4D74392A35A8BE00591641 /* BloodCenters */,
@@ -407,9 +421,11 @@
 				5CCD7FEA2A34D2A700CCE8D5 /* BloodDonorApp.swift in Sources */,
 				5C4D74422A35A9E200591641 /* DonationListView.swift in Sources */,
 				5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */,
+				538B7E602A3763900009A44F /* GetUserFeats.swift in Sources */,
 				5CCD80072A34DC2800CCE8D5 /* Authentication.swift in Sources */,
 				5CF22D4B2A35AE2C00A7BD85 /* DonationViewModel.swift in Sources */,
 				5CCD80052A34DAC200CCE8D5 /* TokenInfo.swift in Sources */,
+				538B7E622A3764C00009A44F /* FeatRank.swift in Sources */,
 				5CCD800B2A34DCE500CCE8D5 /* Errors.swift in Sources */,
 				5CD5ECF42A34E5270012671F /* LoginVIew.swift in Sources */,
 				5CCD80092A34DCC600CCE8D5 /* ErrorResponse.swift in Sources */,
