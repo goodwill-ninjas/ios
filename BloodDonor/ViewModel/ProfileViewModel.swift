@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import JWTDecode
 
-class MainViewModel: ObservableObject {
+class ProfileViewModel: ObservableObject {
     
     @Published var showAuthContainer = true
     @Published var loginPending = false
@@ -41,9 +41,9 @@ class MainViewModel: ObservableObject {
                         if let userId = decodeJWTforUserID(jwtToken: user.token) {
                             if let displayName = extractDisplayNameFromJWT(jwtToken: user.token) {
                                 UserDefaultsWorker.shared.saveAuthTokens(tokens: user.getTokensInfo(), userId: userId, displayName: displayName)
-//                                if let userId = UserDefaultsWorker.shared.getUserId() {
-//                                    print("User ID:", userId)
-//                                }
+                                //                                if let userId = UserDefaultsWorker.shared.getUserId() {
+                                //                                    print("User ID:", userId)
+                                //                                }
                             }
                         }
                     } catch let error {
@@ -64,3 +64,4 @@ class MainViewModel: ObservableObject {
             }
         }
     }
+}

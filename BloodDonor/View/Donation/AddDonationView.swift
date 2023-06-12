@@ -1,70 +1,62 @@
-
 import SwiftUI
 
 struct AddDonationView: View {
-//    @StateObject private var donationViewModel = DonationViewModel()
-    @State private var bloodTypeIndex = 0
-    @State private var donationDate = Date()
-    @State private var bloodAmount = 450
-    @State private var centerName = "RCKiK Gdańsk"
-    @State var isShowingAdvancedForm = false // dodajemy stan, aby przechowywać informację o tym, czy widok "AdvancedFormSwiftUI" jest widoczny
-    
-    let bloodTypes = ["Krew pełna", "Płytki krwi", "Osocze", "Krwinki czerwone", "Krwinki białe"]
-    let bloodAmounts = Array(stride(from: 50, through: 1000, by: 50))
+    @EnvironmentObject var donationVM: DonationViewModel
+    @State private var disqualified: Bool = false
+    @State private var companionUserID: Int?
+    @State private var donatedType: String = ""
+    @State private var amount: Int = 450
+    @State private var bloodPressure: String = ""
+    @State private var hemoglobin: String = ""
+    @State private var arm: String = ""
+    @State private var details: String = ""
+    @State private var donatedAt: String = ""
+    @State private var disqualificationDays: Int = 0
     
     var body: some View {
-        VStack {
-            NavigationView {
-                Form {
-                    Section (header: Text("Nowa donacja")){
-                        Picker("Typ donacji", selection: $bloodTypeIndex) {
-                            ForEach(0 ..< bloodTypes.count){
-                                Text(self.bloodTypes[$0]).tag($0)
-                            }
-                        }.pickerStyle(.menu)
-                        DatePicker("Data donacji", selection: $donationDate, displayedComponents: .date)
-                        Picker(selection: $bloodAmount, label: Text("Ilość krwi")) {
-                            ForEach(bloodAmounts, id: \.self) { amount in
-                                Text("\(amount) ml")}
-                        }
+        NavigationView {
+            Form {
+                Section(header: Text("Donation Details")) {
+                    Toggle("Disqualified", isOn: $disqualified)
+                    if disqualified {
+                        TextField("Companion User ID", value: $companionUserID, format: .number)
                     }
-                    
-                    Section(header: Text("Centrum Krwiodawstwa")){
-                        TextField("Nazwa Centrum", text: $centerName)
-                        
-                    }
-                    Section{
-                        Button(action: {
-                            self.isShowingAdvancedForm.toggle() // po kliknięciu przycisku "Zaawansowane" zmieniamy stan "isShowingAdvancedForm"
-                        }) {
-                            Text("Zaawansowane")
-                                .foregroundColor(.red)
-                                .underline()
-                                .frame(maxWidth: .infinity, alignment: .center)
-                        }
-                    }
-                    .sheet(isPresented: $isShowingAdvancedForm) {
-                        DetailDonationView() // jeśli stan "isShowingAdvancedForm" ulegnie zmianie na "true", wyświetlamy widok "AdvancedFormSwiftUI"
-                    }
-                    Button(action: {
-                        
-                    }, label: {
-                        Text("Dodaj")
-                            .frame(width: 250, height: 50, alignment: .center)
-                            .background(Color.green)
-                            .foregroundColor(Color.white)
-                            .cornerRadius(8)
-                    })
-                    .padding()
+                    TextField("Donated Type", text: $donatedType)
+                    Stepper("Amount: \(amount)", value: $amount)
+                    TextField("Blood Pressure", text: $bloodPressure)
+                    TextField("Donated At", text: $donatedAt)
+
                 }
-                .navigationBarTitle(Text("Dodaj donację"))
+                
+                Section {
+                    Button(action: addDonation) {
+                        if donationVM.addDonationPending {
+                            ProgressView()
+                        } else {
+                            Text("Add Donation")
+                            addDonation()
+                        }
+                    }
+                    .disabled(donationVM.addDonationPending)
+                }
             }
+            .navigationBarTitle("Add Donation")
         }
     }
-}
-
-struct AddDonationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddDonationView()
+    
+    func addDonation() {
+        donationVM.addDonation(
+            user_id: UserDefaultsWorker.shared.getUserId() ?? 0,
+            disqualified: disqualified,
+            companion_user_id: companionUserID,
+            donated_type: donatedType,
+            amount: amount,
+            blood_pressure: bloodPressure,
+            hemoglobin: hemoglobin,
+            arm: arm,
+            details: details,
+            donated_at: donatedAt,
+            disqualification_days: disqualificationDays
+        )
     }
 }
