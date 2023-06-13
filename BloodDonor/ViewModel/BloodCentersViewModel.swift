@@ -53,22 +53,23 @@ class BloodCentersViewModel: ObservableObject {
             return index
         }
     
-//    func getBloodCenterById(city: String) {
-//        withAnimation {
-//            checkProgress = .loading
-//        }
-//        print("getBloodCenterById called")
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            Requester.shared.getBloodCenterbyId(city: self.city) { [self] result in
-//                print("getBloodCenterById response: \(result)")
-//                withAnimation {
-//                    registerPending = false
-//                }
+    func getBloodCenterById(city: String) {
+        withAnimation {
+            checkProgress = .loading
+        }
+        print("getBloodCenterById called")
+        DispatchQueue.global(qos: .userInitiated).async {
+            Requester.shared.getBloodCenterById(city: city) { [self] result in
+                print("getBloodCenterById response: \(result)")
+                withAnimation {
+                    registerPending = false
+                }
+//                TODO: on success - should be accessible from the ViewModel
 //                switch result {
 //                case .success(let bloodCenter):
-//                    
+//
 //                }
-//            }
-//        }
-//    }
+            }
+        }
+    }
 }
