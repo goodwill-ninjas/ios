@@ -115,17 +115,21 @@ class Requester {
     
     func getBloodCenterById(city: String, onResult: @escaping (Result<BloodCenters>) -> Void) {
         var url = Endpoint.bloodCentersDetails.absoluteURL
-        var urlComponents = URLComponents(url: url.absoluteURL, resolvingAgainstBaseURL: true)
-            
-        // Find and replace the "{city}" placeholder in the URL path
-//        urlComponents?.path = (urlComponents?.path.replacingOccurrences(of: "{city}", with: city))!
-            
-        // Create the modified URL from the updated components
-        guard let url = urlComponents?.url else {
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             // Handle invalid URL here
             return
         }
-        let request = formRequest(url: url, data: Data(), method: "GET")
+        
+        // Find and replace the "{city}" placeholder in the URL path
+        urlComponents.path = urlComponents.path.replacingOccurrences(of: "{city}", with: city)
+        
+        // Create the modified URL from the updated components
+        guard let modifiedURL = urlComponents.url else {
+            // Handle invalid URL here
+            return
+        }
+        
+        let request = formRequest(url: modifiedURL, data: Data(), method: "GET")
         self.request(request: request, onResult: onResult)
     }
     
