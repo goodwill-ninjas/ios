@@ -12,6 +12,7 @@ import JWTDecode
 class ProfileViewModel: ObservableObject {
     
     @Published var userInfo: UserInfo? = nil
+    @Published var userFeats: UserFeats? = nil
     @Published var showAuthContainer = true
     @Published var loadingState: LoadingState = .notStarted
     @Published var registerPending = false
@@ -46,6 +47,40 @@ class ProfileViewModel: ObservableObject {
                         loadingState = .error
                     }
                     alert = IdentifiableAlert.buildForError(id: "user_info__server_err", message: Errors.messageFor(err: err.message))
+                case .networkError(_):
+                    withAnimation {
+                        loadingState = .error
+                    }
+                    alert = IdentifiableAlert.networkError()
+                case .authError(_):
+                    withAnimation {
+                        self.showAuthContainer = true
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserFeats () {
+        withAnimation {
+            loadingState = .loading
+        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            Requester.shared.getUserFeats() { [self] result in
+                withAnimation {
+                    registerPending = false
+                }
+                switch result {
+                case .success(let resultUserFeats):
+                    withAnimation {
+                        userFeats = resultUserFeats
+                        loadingState = .finished
+                    }
+                case .serverError(let err):
+                    withAnimation {
+                        loadingState = .error
+                    }
+                    alert = IdentifiableAlert.buildForError(id: "user_feats__server_err", message: Errors.messageFor(err: err.message))
                 case .networkError(_):
                     withAnimation {
                         loadingState = .error
