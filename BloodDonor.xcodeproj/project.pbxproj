@@ -14,6 +14,7 @@
 		534AE3AF2A37C3E90092C308 /* UserFeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3AE2A37C3E90092C308 /* UserFeats.swift */; };
 		538B7E622A3764C00009A44F /* FeatRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E612A3764C00009A44F /* FeatRank.swift */; };
 		538B7E662A3770C60009A44F /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E652A3770C60009A44F /* Donation.swift */; };
+		5C0910F42A38D64F00CCC164 /* Translators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0910F32A38D64F00CCC164 /* Translators.swift */; };
 		5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C250B412A34E3DF00EA63C1 /* Extensions.swift */; };
 		5C4D74312A35A7A100591641 /* AddDisqualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */; };
 		5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74332A35A7E700591641 /* BloodCentersListView.swift */; };
@@ -64,6 +65,7 @@
 		534AE3AE2A37C3E90092C308 /* UserFeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeats.swift; sourceTree = "<group>"; };
 		538B7E612A3764C00009A44F /* FeatRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatRank.swift; sourceTree = "<group>"; };
 		538B7E652A3770C60009A44F /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		5C0910F32A38D64F00CCC164 /* Translators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translators.swift; sourceTree = "<group>"; };
 		5C250B412A34E3DF00EA63C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualificationView.swift; sourceTree = "<group>"; };
 		5C4D74332A35A7E700591641 /* BloodCentersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersListView.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				5CCD800E2A34DDBA00CCE8D5 /* UserDefaults.swift */,
 				5C250B412A34E3DF00EA63C1 /* Extensions.swift */,
 				5CF610FC2A375501000E39A3 /* JWTDecoder.swift */,
+				5C0910F32A38D64F00CCC164 /* Translators.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

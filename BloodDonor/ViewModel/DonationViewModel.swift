@@ -7,7 +7,7 @@ class DonationViewModel: ObservableObject {
     @Published var addDonationPending = false
     @Published var alert: IdentifiableAlert?
     
-    func addDonation(user_id: Int, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: String?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) {
+    func addDonation(user_id: Int, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: Int?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) {
         guard let user_id = UserDefaultsWorker.shared.getUserId() else {
             print("User ID not available")
             return

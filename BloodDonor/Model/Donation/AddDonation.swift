@@ -7,13 +7,13 @@ struct AddDonation: Codable {
     let donated_type: String?
     let amount: Int?
     let blood_pressure: String?
-    let hemoglobin: String?
+    let hemoglobin: Int?
     let arm: String?
     let details: String?
     let donated_at: String?
     let disqualification_days: Int?
     
-    init(user_id: Int, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: String?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) {
+    init(user_id: Int, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: Int?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) {
         self.user_id = user_id
         self.disqualified = disqualified
         self.companion_user_id = companion_user_id
@@ -27,7 +27,7 @@ struct AddDonation: Codable {
         self.disqualification_days = disqualification_days
     }
     
-    static func createFromUser(user: User, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: String?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) -> AddDonation? {
+    static func createFromUser(user: User, disqualified: Bool?, companion_user_id: Int?, donated_type: String?, amount: Int?, blood_pressure: String?, hemoglobin: Int?, arm: String?, details: String?, donated_at: String?, disqualification_days: Int?) -> AddDonation? {
         guard let userId = UserDefaultsWorker.shared.getUserId() else {
             print("User ID not available")
             return nil

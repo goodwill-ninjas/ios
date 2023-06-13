@@ -7,40 +7,69 @@ struct AddDonationView: View {
     @State private var donatedType: String = "whole"
     @State private var amount: Int = 450
     @State private var bloodPressure: String?
-    @State private var hemoglobin: String?
+    @State private var hemoglobin: Int?
     @State private var arm: String?
     @State private var details: String?
-    @State private var donatedAt: String = "2002-02-02T22:22:22.22Z"
+    @State private var donatedAt: String = ""
+    @State private var selectedDate: Date = Date()
     @State private var disqualificationDays: Int = 0
+    @State var isShowingAdvancedForm = false
     
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Donation Details")) {
-                    Toggle("Disqualified", isOn: $disqualified)
-                    if disqualified {
-                        TextField("Companion User ID", value: $companionUserID, format: .number)
+                Section(header: Text("Szczegóły donacji")) {
+                    Picker("Typ donacji", selection: $donatedType) {
+                        Text("Krew Pełna").tag("whole")
+                        Text("Osocze").tag("plasma")
+                        Text("Płytki Krwi").tag("platelet")
+                        Text("Krwinki Czerwone").tag("power")
                     }
-                    TextField("Donated Type", text: $donatedType)
-                    Stepper("Amount: \(amount)", value: $amount)
-                    TextField("Donated At", text: $donatedAt)
-                    
-                    
+                    .pickerStyle(.menu)
+                    Stepper("Ilość krwi: \(amount) ml", value: $amount, step: 50)
+                    DatePicker("Donation Date", selection: $selectedDate, displayedComponents: [.date])
+                        .datePickerStyle(.wheel)
+                        .labelsHidden()
+                        .onChange(of: selectedDate) { newValue in
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SS'Z'"
+                            donatedAt = formatter.string(from: newValue)
+                        }
                 }
-                
+                Section{
+                    Button(action: {
+                        self.isShowingAdvancedForm.toggle()
+                    }) {
+                        Text("Zaawansowane")
+                            .foregroundColor(.red)
+                            .underline()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                }
+                .sheet(isPresented: $isShowingAdvancedForm) {
+                    DetailDonationView(addDonationAction: { bloodPressure, hemoglobin, arm, details in
+                        self.bloodPressure = bloodPressure
+                        self.hemoglobin = hemoglobin
+                        self.arm = arm
+                        self.details = details
+                    })
+                }
                 Section {
                     Button(action: addDonation) {
                         if donationVM.addDonationPending {
                             ProgressView()
                         } else {
-                            Text("Add Donation")
-                            // addDonation()
+                            Text("Dodaj")
                         }
                     }
                     .disabled(donationVM.addDonationPending)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(8)
                 }
             }
-            .navigationBarTitle("Add Donation")
+            .navigationBarTitle("Nowa donacja")
         }
     }
     

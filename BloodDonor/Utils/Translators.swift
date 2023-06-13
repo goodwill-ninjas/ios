@@ -1,19 +1,17 @@
 import Foundation
 
-enum BloodTypeTranslation: String {
-    case whole = "Krew Pełna"
-    case plasma = "Osocze"
-    case platelet = "Płytki Krwi"
-    case power = "Krwinki Czerwone"
-    
-    var translatedValue: String {
-        return rawValue
-    }
-    
+class BloodTypeTranslator {
     static func translateBloodType(type: String) -> String {
-        if let bloodType = BloodTypeTranslation(rawValue: type) {
-            return bloodType.translatedValue
-        } else {
+        switch type {
+        case "whole":
+            return "Krew Pełna"
+        case "plasma":
+            return "Osocze"
+        case "platelet":
+            return "Płytki Krwi"
+        case "power":
+            return "Krwinki Czerwone"
+        default:
             return "Krew"
         }
     }

@@ -5,6 +5,7 @@ struct HomeView: View {
         Image("odznaka_1")
             .opacity(0.6)
             .frame(width: 50, height: 50)
+            .colorMultiply(.gray)
     }
 }
 

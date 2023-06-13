@@ -31,7 +31,7 @@ struct DonationListView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         } else {
-                            Text("🩸 \(BloodTypeTranslation.translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
+                            Text("🩸 \(BloodTypeTranslator.translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .center)
                             
@@ -128,7 +128,6 @@ struct DonationListView: View {
             }
         }
     }
-    
     let trimDate: (String) -> String = { date in
         return date.components(separatedBy: "T").first ?? ""
     }
