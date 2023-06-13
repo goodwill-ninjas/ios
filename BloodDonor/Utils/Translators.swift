@@ -1,10 +1,3 @@
-//
-//  Translators.swift
-//  BloodDonor
-//
-//  Created by Łukasz Cettler on 13/06/2023.
-//
-
 import Foundation
 
 enum BloodTypeTranslation: String {
@@ -23,5 +16,14 @@ enum BloodTypeTranslation: String {
         } else {
             return "Krew"
         }
+    }
+}
+
+enum ArmConjugation: String {
+    case left = "lewa"
+    case right = "prawa"
+    
+    func conjugateArm() -> String {
+        return self.rawValue
     }
 }

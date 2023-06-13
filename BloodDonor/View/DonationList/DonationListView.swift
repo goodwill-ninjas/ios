@@ -74,12 +74,14 @@ struct DonationListView: View {
                                 }
                             }
                             
-                            if (userDonation.arm != nil) {
+                            if let arm = userDonation.arm {
                                 Spacer()
-                                Text("Pobrano krew z \(conjugateArm(userDonation.details!)) ręki")
-                                    .font(.caption)
-                                    .italic()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                if let conjugatedArm = ArmConjugation(rawValue: arm) {
+                                    Text("Ręka użyta do pobrania: \(conjugatedArm.conjugateArm())")
+                                        .font(.caption)
+                                        .italic()
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
                             }
                             
                             if (userDonation.details != nil) {
@@ -129,9 +131,5 @@ struct DonationListView: View {
     
     let trimDate: (String) -> String = { date in
         return date.components(separatedBy: "T").first ?? ""
-    }
-    
-    let conjugateArm: (String) -> String = { arm in
-        return arm == "left" ? "lewej" : "prawej"
     }
 }
