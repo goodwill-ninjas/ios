@@ -4,13 +4,13 @@ struct AddDonationView: View {
     @EnvironmentObject var donationVM: DonationViewModel
     @State private var disqualified: Bool = false
     @State private var companionUserID: Int?
-    @State private var donatedType: String = ""
+    @State private var donatedType: String = "whole"
     @State private var amount: Int = 450
-    @State private var bloodPressure: String = ""
-    @State private var hemoglobin: String = ""
-    @State private var arm: String = ""
-    @State private var details: String = ""
-    @State private var donatedAt: String = ""
+    @State private var bloodPressure: String?
+    @State private var hemoglobin: String?
+    @State private var arm: String?
+    @State private var details: String?
+    @State private var donatedAt: String = "2002-02-02T22:22:22.22Z"
     @State private var disqualificationDays: Int = 0
     
     var body: some View {
@@ -23,9 +23,9 @@ struct AddDonationView: View {
                     }
                     TextField("Donated Type", text: $donatedType)
                     Stepper("Amount: \(amount)", value: $amount)
-                    TextField("Blood Pressure", text: $bloodPressure)
                     TextField("Donated At", text: $donatedAt)
-
+                    
+                    
                 }
                 
                 Section {

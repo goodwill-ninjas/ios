@@ -31,7 +31,7 @@ struct DonationListView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         } else {
-                            Text("🩸 \(translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
+                            Text("🩸 \(BloodTypeTranslation.translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .center)
                             
@@ -124,21 +124,6 @@ struct DonationListView: View {
                 if donationList.userDonations.isEmpty {
                     donationList.getUserDonations()
             }
-        }
-    }
-    
-    func translateBloodType(type: String) -> String {
-        switch type {
-        case "whole":
-            return "Krew Pełna"
-        case "plasma":
-            return "Osocze"
-        case "platelet":
-            return "Płytki Krwi"
-        case "power":
-            return "Krwinki Czerwone"
-        default:
-            return "Krew"
         }
     }
     

@@ -53,22 +53,22 @@ class BloodCentersViewModel: ObservableObject {
             return index
         }
     
-    func getBloodCenterById(city: String) {
-        withAnimation {
-            checkProgress = .loading
-        }
-        print("getBloodCenterById called")
-        DispatchQueue.global(qos: .userInitiated).async {
-            Requester.shared.getBloodCenterbyId(city: self.city) { [self] result in
-                print("getBloodCenterById response: \(result)")
-                withAnimation {
-                    registerPending = false
-                }
-                switch result {
-                case .success(let bloodCenter):
-                    
-                }
-            }
-        }
-    }
+//    func getBloodCenterById(city: String) {
+//        withAnimation {
+//            checkProgress = .loading
+//        }
+//        print("getBloodCenterById called")
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            Requester.shared.getBloodCenterbyId(city: self.city) { [self] result in
+//                print("getBloodCenterById response: \(result)")
+//                withAnimation {
+//                    registerPending = false
+//                }
+//                switch result {
+//                case .success(let bloodCenter):
+//                    
+//                }
+//            }
+//        }
+//    }
 }

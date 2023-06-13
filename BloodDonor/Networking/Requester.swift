@@ -118,7 +118,7 @@ class Requester {
         var urlComponents = URLComponents(url: url.absoluteURL, resolvingAgainstBaseURL: true)
             
         // Find and replace the "{city}" placeholder in the URL path
-        urlComponents?.path = (urlComponents?.path.replacingOccurrences(of: "{city}", with: city))!
+//        urlComponents?.path = (urlComponents?.path.replacingOccurrences(of: "{city}", with: city))!
             
         // Create the modified URL from the updated components
         guard let url = urlComponents?.url else {
