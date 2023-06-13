@@ -12,14 +12,17 @@ import JWTDecode
 class ProfileViewModel: ObservableObject {
     
     @Published var userInfo: UserInfo? = nil
-    @Published var userFeats: UserFeats? = nil
+    @Published var userFeats: [UserFeats] = []
     @Published var showAuthContainer = true
     @Published var loadingState: LoadingState = .notStarted
+    @Published var isUserInfoLoaded: Bool = false
+    @Published var isUserFeatsLoaded: Bool = false
     @Published var registerPending = false
     @Published var alert: IdentifiableAlert?
     
     init () {
-        forceInit()
+        getUserFeats()
+        getUserInfo()
     }
     
     func logout() {
@@ -85,6 +88,7 @@ class ProfileViewModel: ObservableObject {
                         userFeats = resultUserFeats
                         loadingState = .finished
                     }
+                    print("im here \(userFeats)")
                 case .serverError(let err):
                     withAnimation {
                         loadingState = .error

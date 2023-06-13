@@ -9,7 +9,6 @@ import Foundation
 
 struct FeatRank : Codable {
     let id: Int
-    let feat: Int
     let requirement: Int
     let experience_award: Int
     let title_award: String?

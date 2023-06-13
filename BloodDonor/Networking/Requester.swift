@@ -107,7 +107,7 @@ class Requester {
         self.request(request: request, onResult: onResult)
     }
     
-    func getUserFeats(onResult: @escaping (Result<UserFeats>) -> Void) {
+    func getUserFeats(onResult: @escaping (Result<[UserFeats]>) -> Void) {
         let url = Endpoint.userFeats.absoluteURL
         let request = formRequest(url: url, data: Data(), method: "GET")
         self.request(request: request, onResult: onResult)
