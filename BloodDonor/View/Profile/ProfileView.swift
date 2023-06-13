@@ -1,5 +1,10 @@
 import SwiftUI
 
+struct BloodBadge : Identifiable {
+    let id: Int
+    let text: String
+}
+
 struct ProfileView: View {
     @State var index = 0
     @EnvironmentObject var userProfile: ProfileViewModel
@@ -79,7 +84,7 @@ struct ProfileView: View {
                             Button(action: {
                                 self.index = 1
                             }) {
-                                Text("Misje")
+                                Text("foobar")
                                     .foregroundColor(self.index == 1 ? Color.white : .black)
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 50)
@@ -96,116 +101,52 @@ struct ProfileView: View {
                         
                         // Feats - Odznaki
                         if (self.index == 0) {
+                            let bloodDonorRanks = userProfile.userFeats.enumerated().first(where: {
+                                $0.element.featName == "Zasłużony Dawca Krwi"
+                                || $0.element.featName == "Zasłużona Dawczyni Krwi"
+                            })
+                            let achievedRanks = bloodDonorRanks?.element.achievedRanks?.map { $0.rank } ?? []
+
+                            
                             ScrollView(.horizontal, showsIndicators: false) {
+                                let bloodBadges = [
+                                    BloodBadge(id: 1, text: "Zasłużony Honorowy Dawca Krwi III stopnia"),
+                                    BloodBadge(id: 2, text: "Zasłużony Honorowy Dawca Krwi II stopnia"),
+                                    BloodBadge(id: 3, text: "Zasłużony Honorowy Dawca Krwi I stopnia"),
+                                ]
                                 LazyHStack(spacing: 15) {
-                                    
-                                    VStack(spacing: 20) {
-                                        Image("odznaka_1")
-             
-                                            .frame(width: 90, height: 90)
-                                        
-                                        Text("Zasłużony Honorowy Dawca Krwi III stopnia")
-                                            .font(.subheadline)
-                                            .padding(.top, 10)
-                                            .lineLimit(nil)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                        
-                                        ProgressView(value: 1)
-                                            .progressViewStyle(LinearProgressViewStyle())
-                                            .frame(height: 4)
-                                            .padding(.horizontal)
-                                            .cornerRadius(2)
-                                        
-                                        Text("Odblokowano")
-                                            .font(.caption)
-                                            .foregroundColor(.green)
+                                    ForEach(bloodBadges) { badge in
+                                        VStack(spacing: 20) {
+                                            Image("odznaka_\(badge.id)")
+                                                .resizable()
+                                                .frame(width: 85, height: 115)
+                                            
+                                            Text(badge.text)
+                                                .font(.subheadline)
+                                                .padding(.top, 10)
+                                                .lineLimit(nil)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                            
+                                            Text(achievedRanks.contains(badge.id) ? "Odblokowano" : "Nieodblokowano")
+                                                .font(.caption)
+                                                .foregroundColor(achievedRanks.contains(badge.id) ? .green : .red)
+                                        }
+                                        .opacity(achievedRanks.contains(badge.id) ? 1 : 0.6)
+                                        .padding(.vertical)
+                                        .frame(width: (UIScreen.main.bounds.width - 60) / 2)
+                                        .background(Color.white)
+                                        .cornerRadius(15)
+                                        .shadow(color: Color.black.opacity(0.3), radius: 5, x: 8, y: 8)
+                                        .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
                                     }
-                                    .padding(.vertical)
-                                    .frame(width: (UIScreen.main.bounds.width - 60) / 2)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                                    .shadow(color: Color.black.opacity(0.3), radius: 5, x: 8, y: 8)
-                                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
-                                    
-                                    VStack(spacing: 20) {
-                                        Image("odznaka_2")
-                                            .frame(width: 80, height: 80)
-                                        
-                                        Text("Zasłużony Honorowy Dawca Krwi II stopnia")
-                                            .font(.subheadline)
-                                            .padding(.top, 10)
-                                            .lineLimit(nil)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                        
-                                        ProgressView(value: 0.75)
-                                            .progressViewStyle(LinearProgressViewStyle())
-                                            .frame(height: 4)
-                                            .padding(.horizontal)
-                                            .cornerRadius(2)
-                                        
-                                        Text("Nieodblokowano")
-                                            .font(.caption)
-                                            .foregroundColor(.red)
-                                    }
-                                    .padding(.vertical)
-                                    .frame(width: (UIScreen.main.bounds.width - 60) / 2)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                                    .shadow(color: Color.black.opacity(0.3), radius: 5, x: 8, y: 8)
-                                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
-                                    
-                                    VStack(spacing: 20) {
-                                        Image("odznaka_3")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                        
-                                        Text("Zasłużony Honorowy Dawca Krwi II stopnia")
-                                            .font(.subheadline)
-                                            .padding(.top, 10)
-                                            .lineLimit(nil)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                        
-                                        Text("Zablokowane")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                    }
-                                    .opacity(0.6)
-                                    .padding(.vertical)
-                                    .frame(width: (UIScreen.main.bounds.width - 60) / 2)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
-                                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
-                                    
-                                    VStack(spacing: 17) {
-                                        Image("odznaka_4")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                        
-                                        Text("Honorowy Dawca Krwi: Zasłużony dla Zdrowia Narodu")
-                                            .font(.subheadline)
-                                            .lineLimit(nil)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                            .multilineTextAlignment(.center)
-                                        
-                                        Text("Zablokowane")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                    }
-                                    .opacity(0.6)
-                                    .padding(.vertical)
-                                    .frame(width: (UIScreen.main.bounds.width - 60) / 2)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 8, y: 8)
-                                    .shadow(color: Color.white.opacity(0.5), radius: 5, x: -8, y: -8)
                                 }
                             }
+
                         }
                         
                         // Feats - Misje
                         if (self.index == 1) {
-                            Text("ooooo")
+                            Text("foobar")
                         }
                         
                         Spacer()
@@ -220,6 +161,9 @@ struct ProfileView: View {
                             .cornerRadius(10)
                         }
                     )
+                    .onAppear() {
+                        userProfile.forceInit()
+                    }
                 case .error:
                     Spacer()
                     Text("Wczytujemy twoje dane. Spróbuj za chwilę.")
