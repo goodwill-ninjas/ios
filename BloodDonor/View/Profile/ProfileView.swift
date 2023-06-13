@@ -44,13 +44,29 @@ struct ProfileView: View {
                                     .lineLimit(nil)
                                     .fixedSize(horizontal: false, vertical: true)
                                 
-                                Text("Honorowy dawca krwi II")
+                                Text("Dawca Krwi")
                                     .foregroundColor(Color.black.opacity(0.7))
                                     .padding(.top, 2)
                                 
                                 Text("Poziom: \(userProfile.userInfo!.exp_details.level)")
                                     .foregroundColor(Color.black.opacity(0.7))
                                 
+                                HStack() {
+                                    let expPercentage = (Float(userProfile.userInfo!.exp_details.current_experience - userProfile.userInfo!.exp_details.min_experience) / Float(userProfile.userInfo!.exp_details.max_experience - userProfile.userInfo!.exp_details.min_experience)) * 100
+                                    Text("\(userProfile.userInfo!.exp_details.min_experience)")
+                                        .font(.caption)
+                                        .italic()
+                                        .foregroundColor(Color.black.opacity(0.5))
+                                    Spacer()
+                                    Text("\(Int(expPercentage))%")
+                                        .bold()
+                                        .foregroundColor(Color.red)
+                                    Spacer()
+                                    Text("\(userProfile.userInfo!.exp_details.max_experience + 1)")
+                                        .font(.caption)
+                                        .italic()
+                                        .foregroundColor(Color.black.opacity(0.5))
+                                }
                                 ProgressView(
                                     value: Double(userProfile.userInfo!.exp_details.current_experience - userProfile.userInfo!.exp_details.min_experience),
                                     total: Double(userProfile.userInfo!.exp_details.max_experience - userProfile.userInfo!.exp_details.min_experience)
@@ -84,7 +100,7 @@ struct ProfileView: View {
                             Button(action: {
                                 self.index = 1
                             }) {
-                                Text("foobar")
+                                Text("Misje")
                                     .foregroundColor(self.index == 1 ? Color.white : .black)
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 50)
