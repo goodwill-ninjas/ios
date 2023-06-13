@@ -22,7 +22,7 @@ enum Endpoint {
         case .bloodCenters:
             return "/api/blood-centers"
         case .bloodCentersDetails:
-            return "/api/blood-centers/{city}"
+            return "/api/blood-centers/city"
         case .addDonation:
             return "/api/donations"
         case .userFeats:

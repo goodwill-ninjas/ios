@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var mainVm = MainViewModel()
     @StateObject var bloodCentersVm = BloodCentersViewModel()
+    @StateObject var bloodCentersDetailVm = BloodCentersDetailViewModel()
     @StateObject var donationVM = DonationViewModel()
     @StateObject var donationList = DonationListViewModel()
     @StateObject var userProfile = ProfileViewModel()
@@ -30,6 +31,7 @@ struct ContentView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .environmentObject(mainVm)
         .environmentObject(bloodCentersVm)
+        .environmentObject(bloodCentersDetailVm)
         .environmentObject(donationVM)
         .environmentObject(donationList)
         .environmentObject(userProfile)

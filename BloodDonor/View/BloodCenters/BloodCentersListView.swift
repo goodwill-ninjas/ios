@@ -62,8 +62,3 @@ struct BloodCentersListView: View {
                 }
         }
     }
-//struct BloodCentersListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BloodCentersListView()
-//    }
-//}

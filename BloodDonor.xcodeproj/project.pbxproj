@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C8EFB5E2A38D90300ED0129 /* Translators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EFB5D2A38D90300ED0129 /* Translators.swift */; };
+		0C8EFB602A38F1B900ED0129 /* BloodCentersDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */; };
 		534AE3A82A37BEBF0092C308 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A72A37BEBF0092C308 /* UserInfo.swift */; };
 		534AE3AA2A37C1FA0092C308 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A92A37C1FA0092C308 /* UserSettings.swift */; };
 		534AE3AD2A37C25B0092C308 /* UserExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3AC2A37C25B0092C308 /* UserExperience.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		0C8EFB5D2A38D90300ED0129 /* Translators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translators.swift; sourceTree = "<group>"; };
+		0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersDetailViewModel.swift; sourceTree = "<group>"; };
 		534AE3A72A37BEBF0092C308 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		534AE3A92A37C1FA0092C308 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		534AE3AC2A37C25B0092C308 /* UserExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExperience.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				5CF22D4A2A35AE2C00A7BD85 /* DonationViewModel.swift */,
 				5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */,
 				5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */,
+				0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				5CF22D4D2A35AE3700A7BD85 /* DonationListViewModel.swift in Sources */,
 				5CF22D4F2A35C2E500A7BD85 /* HomeViewModel.swift in Sources */,
 				5CD5ECF82A34E6A80012671F /* LoadingState.swift in Sources */,
+				0C8EFB602A38F1B900ED0129 /* BloodCentersDetailViewModel.swift in Sources */,
 				5CCD800D2A34DD6500CCE8D5 /* TokensInfo.swift in Sources */,
 				5CCD80032A34DA7400CCE8D5 /* User.swift in Sources */,
 				5C4D74442A35A9F700591641 /* DonationView.swift in Sources */,

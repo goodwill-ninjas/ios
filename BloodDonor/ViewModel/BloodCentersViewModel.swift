@@ -3,6 +3,7 @@ import SwiftUI
 
 class BloodCentersViewModel: ObservableObject {
     @Published var bloodCenters: [BloodCenters] = []
+    @Published var bloodCenterBankDetails: [BloodCenterBankDetails] = []
     @Published var checkProgress: LoadingState = .notStarted
     @Published var showAuthContainer = true
     @Published var loginPending = false
@@ -45,31 +46,48 @@ class BloodCentersViewModel: ObservableObject {
         }
     }
     
-    func firstIndexForCity(city: String) -> Int {
-            guard let index = bloodCenters.firstIndex(where: { $0.city == city }) else {
-                // Handle the case where the city is not found in the bloodCenters array
-                return 0 // Return a default index or handle the error appropriately
-            }
-            return index
-        }
+    // Moved to BloodCentersDetailViewModel
+//    func firstIndexForCity(city: String) -> Int {
+//            guard let index = bloodCenters.firstIndex(where: { $0.city == city }) else {
+//                // Handle the case where the city is not found in the bloodCenters array
+//                return 0 // Return a default index or handle the error appropriately
+//            }
+//            return index
+//        }
     
-    func getBloodCenterById(city: String) {
-        withAnimation {
-            checkProgress = .loading
-        }
-        print("getBloodCenterById called")
-        DispatchQueue.global(qos: .userInitiated).async {
-            Requester.shared.getBloodCenterById(city: city) { [self] result in
-                print("getBloodCenterById response: \(result)")
-                withAnimation {
-                    registerPending = false
-                }
-//                TODO: on success - should be accessible from the ViewModel
+//    func getBloodCenterById(city: String) {
+//        withAnimation {
+//            checkProgress = .loading
+//        }
+//        print("getBloodCenterById called")
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            Requester.shared.getBloodCenterById(city: city) { [self] result in
+//                print("getBloodCenterById response: \(result)")
+//                withAnimation {
+//                    registerPending = false
+//                }
+////                TODO: on success - should be accessible from the ViewModel
 //                switch result {
 //                case .success(let bloodCenter):
-//
+//                    print("was successful!")
+//                    withAnimation {
+//                        bloodCenterBankDetails = bloodCenterBankDetails
+//                        checkProgress = .finished
+//                    }
+//                case .serverError(_):
+//                    withAnimation {
+//                        checkProgress = .error
+//                    }
+//                case .authError(_):
+//                    withAnimation {
+//                        self.showAuthContainer = true
+//                    }
+//                case .networkError(_):
+//                    withAnimation {
+//                        checkProgress = .error
+//                    }
 //                }
-            }
-        }
-    }
+//            }
+//        }
+//    }
 }

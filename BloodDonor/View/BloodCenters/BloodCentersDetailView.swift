@@ -9,46 +9,39 @@ import SwiftUI
 import CoreLocation
 
 struct BloodCentersDetailView: View {
-    @EnvironmentObject var bloodCentersVm: BloodCentersViewModel
+    @EnvironmentObject var bloodCentersDetailVm: BloodCentersDetailViewModel
     var city: String
-    //    var bankDetails: [BloodCenterBankDetails]
-    //    let latitude: CLLocationDegrees
-    //    let longitude: CLLocationDegrees
-    //    var region: CLLocationCoordinate2D
-    //   let bloodCenterDataService: BloodCenterDataService
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    var region: CLLocationCoordinate2D?
     
     init(city: String) {
         self.city = city
-        //        self.center = center
-        //        self.bankDetails = bankDetails
-        //        let geoCoordinatesArr = bloodCentersVm.geo_coordinates.components(separatedBy: ", ")
-        ////
-        ////        // Add variable to substring geoCoordinates into latitude & longitude
-        //        self.latitude = Double(geoCoordinatesArr[0])!
-        //        self.longitude = Double(geoCoordinatesArr[1])!
-        //        region = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
-        ////        self.bloodCenterDataService = BloodCenterDataService()
-    }
         
-        var body: some View {
-            VStack {
-                //            BloodCenterMapView(coordinate: region)
-                //                .ignoresSafeArea(edges: .top)
-                //                .frame(height: 100)
+    }
+    
+    var body: some View {
+        VStack {
+            switch bloodCentersDetailVm.checkProgress {
+            case .finished:
+                // TODO: Restore MapView
+//                BloodCenterMapView(coordinate: region!)
+//                    .ignoresSafeArea(edges: .top)
+//                    .frame(height: 100)
                 ScrollView {
                     VStack(alignment: .leading) {
-                        Text(bloodCentersVm.bloodCenters.first(where: { $0.city == city })?.name ?? "")
+                        Text(bloodCentersDetailVm.bloodCenterBankDetails!.name)
                             .font(.title)
                         
                         HStack {
-                            Text(bloodCentersVm.bloodCenters.first(where: { $0.city == city })?.street_name ?? "") // + " " + bloodCentersVm.streetNumber)
+                            Text(bloodCentersDetailVm.bloodCenterBankDetails!.street_name + " " + bloodCentersDetailVm.bloodCenterBankDetails!.street_number)
                         }
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         
                         Divider()
                         
-                        if let openFrom = bloodCentersVm.bloodCenters.first(where: { $0.city == city })?.open_from, let openTo = bloodCentersVm.bloodCenters.first(where: { $0.city == city })?.open_to {
+                        if let openFrom = bloodCentersDetailVm.bloodCenterBankDetails!.open_from, let openTo = bloodCentersDetailVm.bloodCenterBankDetails!.open_to {
                             VStack {
                                 Text("Godziny otwarcia")
                                     .font(.title2)
@@ -59,24 +52,22 @@ struct BloodCentersDetailView: View {
                         
                         Text("Zapasy krwi")
                             .font(.title2)
-                            .onAppear() {
-                                //                         bloodCenterDataService.fetchBloodCenterBankDetails(city: center.city)
+                        VStack {
+                            ForEach(bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details!, id: \.id) { bloodCenter in
+                                HStack {
+                                    Text(bloodCenter.blood_type)
+                                    Spacer()
+                                    
+                                    ForEach(1...imageCount(for: bloodCenter.capacity), id: \.self) { _ in
+                                        Image("droplet")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .alignmentGuide(.leading) { _ in 20 }
+                                    }
+                                }
                             }
-                        //                    VStack {
-                        //                        ForEach(bloodCentersVm, id: \.bloodType) { detail in
-                        //                            HStack {
-                        //                                Text(detail.bloodType)
-                        //                                Spacer()
-                        //
-                        //                                ForEach(1...imageCount(for: detail.capacity), id: \.self) { _ in
-                        //                                    Image("droplet")
-                        //                                        .resizable()
-                        //                                        .frame(width: 20, height: 20)
-                        //                                        .alignmentGuide(.leading) { _ in 20 }
-                        //                                }
-                        //                            }
-                        //                        }
-                        //                    }
+                        }
+                        
                         
                     }
                 }
@@ -85,7 +76,7 @@ struct BloodCentersDetailView: View {
                 
                 Spacer()
                 Button(action: {
-                    guard let phoneNumber = bloodCentersVm.bloodCenters.first(where: { $0.city == city })?.phone_number,
+                    guard let phoneNumber = bloodCentersDetailVm.bloodCenterBankDetails?.phone_number,
                           let number = URL(string: "tel://" + phoneNumber) else { return }
                     if UIApplication.shared.canOpenURL(number) {
                         UIApplication.shared.open(number)
@@ -100,34 +91,70 @@ struct BloodCentersDetailView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(8)
                 })
+            case .error:
+                Spacer()
+                Text("An error occurred while loading data")
+                    .padding(.horizontal, 24)
+                Button {
+                    bloodCentersDetailVm.getBloodCenterById(city: city)
+                } label: {
+                    Text("Retry")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 50)
+                        .background(Color.black)
+                }
+                .cornerRadius(10)
+                .padding(.top, 16)
+                .padding(.horizontal, 24)
+                Spacer()
+                
+            case .notStarted, .loading:
+                Spacer()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                    .scaleEffect(1.6)
+                    .padding(.top, 26)
+                Spacer()
             }
-            //        .onAppear() {
-            //            if bloodCentersVm.bloodCenters.isEmpty {
-            //                bloodCentersVm.getBloodCenterById(city: city)
-            //            }
-            //        }
+        }
+        .onAppear {
+            if bloodCentersDetailVm.bloodCenters.isEmpty {
+                bloodCentersDetailVm.getBloodCenterById(city: city)
+            }
         }
     }
     
-    private func imageCount(for capacity: String) -> Int {
-        switch capacity {
-        case "STOP":
-            return 5
-        case "ALMOST_FULL":
-            return 4
-        case "OPTIMAL":
-            return 3
-        case "MODERATE":
-            return 2
-        case "CRITICAL":
-            return 1
-        default:
-            return 0
-        }
+//    private mutating func calculateGeoCoordinates() {
+//        let geoCoordinatesArr = bloodCentersDetailVm.bloodCenterBankDetails!.geo_coordinates.components(separatedBy: ", ")
+//        // Add variable to substring geoCoordinates into latitude & longitude
+//        latitude = Double(geoCoordinatesArr[0])!
+//        longitude = Double(geoCoordinatesArr[1])!
+//        region = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
+//    }
+}
+
+private func imageCount(for capacity: String) -> Int {
+    switch capacity {
+    case "STOP":
+        return 5
+    case "ALMOST_FULL":
+        return 4
+    case "OPTIMAL":
+        return 3
+    case "MODERATE":
+        return 2
+    case "CRITICAL":
+        return 1
+    default:
+        return 0
     }
-    //struct BloodCentersDetailView_Previews: PreviewProvider {
-    //   static var previews: some View {
-    //       BloodCentersDetailView()
-    //   }
-    //}
+}
+
+//struct BloodCentersDetailView_Previews: PreviewProvider {
+//   static var previews: some View {
+//       BloodCentersDetailView()
+//   }
+//}
 
