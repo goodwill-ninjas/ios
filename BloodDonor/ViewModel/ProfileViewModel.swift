@@ -18,12 +18,21 @@ class ProfileViewModel: ObservableObject {
     @Published var registerPending = false
     @Published var alert: IdentifiableAlert?
     
+    init () {
+        forceInit()
+    }
+    
     func logout() {
         UserDefaultsWorker.shared.dropTokens()
         Requester.shared.dropTokens()
         withAnimation {
             showAuthContainer = true
         }
+    }
+    
+    func forceInit () {
+        getUserInfo()
+        getUserFeats()
     }
     
     func getUserInfo () {

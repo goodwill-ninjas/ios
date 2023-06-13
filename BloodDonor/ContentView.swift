@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var bloodCentersVm = BloodCentersViewModel()
     @StateObject var donationVM = DonationViewModel()
     @StateObject var donationList = DonationListViewModel()
+    @StateObject var userProfile = ProfileViewModel()
     
     var body: some View {
         NavigationView {
@@ -31,6 +32,7 @@ struct ContentView: View {
         .environmentObject(bloodCentersVm)
         .environmentObject(donationVM)
         .environmentObject(donationList)
+        .environmentObject(userProfile)
         .navigationBarTitle("", displayMode: .inline)
         .preferredColorScheme(.light)
     }
