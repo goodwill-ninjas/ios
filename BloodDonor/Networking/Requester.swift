@@ -107,6 +107,12 @@ class Requester {
         self.request(request: request, onResult: onResult)
     }
     
+    func getUserFeats(onResult: @escaping (Result<UserFeats>) -> Void) {
+        let url = Endpoint.userFeats.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
     func getBloodCenterById(city: String, onResult: @escaping (Result<BloodCenters>) -> Void) {
         var url = Endpoint.bloodCentersDetails.absoluteURL
         var urlComponents = URLComponents(url: url.absoluteURL, resolvingAgainstBaseURL: true)
