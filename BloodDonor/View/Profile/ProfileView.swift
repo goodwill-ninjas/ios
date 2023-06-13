@@ -162,7 +162,27 @@ struct ProfileView: View {
                         
                         // Feats - Misje
                         if (self.index == 1) {
-                            Text("foobar")
+                            List(userProfile.userFeats, id:\.featId) {
+                                userFeat in VStack() {
+                                    Text("\(userFeat.featName)")
+                                        .font(.headline)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                    
+                                    Text("\(userFeat.featDescription)")
+                                        .font(.caption)
+                                        .italic()
+                                    Spacer()
+                                    HStack() {
+                                        Text("Zdobyte rangi: \(userFeat.achievedRanks!.count)")
+                                            .font(.caption)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                        Text("Do zdobycia: \(userFeat.nextRanks!.count)")
+                                            .font(.caption)
+                                            .frame(maxWidth: .infinity, alignment: .trailing)
+                                    }
+                                }
+                            }
                         }
                         
                         Spacer()
