@@ -11,51 +11,59 @@ struct BloodCentersListView: View {
                     NavigationLink {
                         BloodCentersDetailView(city: bloodCenter.city)
                     } label: {
-                        HStack() {
-                            Text("🏥")
-                            Text(bloodCenter.name)
-                                .font(.headline)
+                        VStack{
+                            HStack() {
+                                Text("🏥")
+                                    .font(.system(size: 50))
+                                VStack (alignment: .leading){
+                                    Text(bloodCenter.name)
+                                        .font(.headline)
+                                    Text("Województwo \(bloodCenter.voivodeship)")
+                                        .font(.subheadline)
+                                }
+                            }
+                            
                         }
                     }
                 }
-            case .error:
-                Spacer()
-                Text("An error occurred while loading data")
+                case .error:
+                    Spacer()
+                    Text("An error occurred while loading data")
+                        .padding(.horizontal, 24)
+                    Button {
+                        bloodCentersVm.getBloodCenters()
+                    } label: {
+                        Text("Retry")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 50)
+                            .background(Color.black)
+                    }
+                    .cornerRadius(10)
+                    .padding(.top, 16)
                     .padding(.horizontal, 24)
-                Button {
-                    bloodCentersVm.getBloodCenters()
-                } label: {
-                    Text("Retry")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 50)
-                        .background(Color.black)
+                    Spacer()
+                    
+                case .notStarted, .loading:
+                    Spacer()
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                        .scaleEffect(1.6)
+                        .padding(.top, 26)
+                    Spacer()
                 }
-                .cornerRadius(10)
-                .padding(.top, 16)
-                .padding(.horizontal, 24)
-                Spacer()
-                
-            case .notStarted, .loading:
-                Spacer()
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                    .scaleEffect(1.6)
-                    .padding(.top, 26)
-                Spacer()
             }
-        }
-        .navigationBarTitle("Lista Placówek", displayMode: .inline)
-        .onAppear {
-            if bloodCentersVm.bloodCenters.isEmpty {
-                bloodCentersVm.getBloodCenters()
-            }
+                .navigationBarTitle("Lista Placówek", displayMode: .inline)
+                .onAppear {
+                    if bloodCentersVm.bloodCenters.isEmpty {
+                        bloodCentersVm.getBloodCenters()
+                    }
+                }
         }
     }
-}
-struct BloodCentersListView_Previews: PreviewProvider {
-    static var previews: some View {
-        BloodCentersListView()
-    }
-}
+//struct BloodCentersListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BloodCentersListView()
+//    }
+//}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8EFB5E2A38D90300ED0129 /* Translators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EFB5D2A38D90300ED0129 /* Translators.swift */; };
 		534AE3A82A37BEBF0092C308 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A72A37BEBF0092C308 /* UserInfo.swift */; };
 		534AE3AA2A37C1FA0092C308 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A92A37C1FA0092C308 /* UserSettings.swift */; };
 		534AE3AD2A37C25B0092C308 /* UserExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3AC2A37C25B0092C308 /* UserExperience.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C8EFB5D2A38D90300ED0129 /* Translators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translators.swift; sourceTree = "<group>"; };
 		534AE3A72A37BEBF0092C308 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		534AE3A92A37C1FA0092C308 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		534AE3AC2A37C25B0092C308 /* UserExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExperience.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		5CCD7FFC2A34D2D900CCE8D5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0C8EFB5D2A38D90300ED0129 /* Translators.swift */,
 				5CCD800A2A34DCE500CCE8D5 /* Errors.swift */,
 				5CCD800E2A34DDBA00CCE8D5 /* UserDefaults.swift */,
 				5C250B412A34E3DF00EA63C1 /* Extensions.swift */,
@@ -441,6 +444,7 @@
 				5CD5ECEF2A34E4CB0012671F /* MainViewModel.swift in Sources */,
 				5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */,
 				5CCD7FEA2A34D2A700CCE8D5 /* BloodDonorApp.swift in Sources */,
+				0C8EFB5E2A38D90300ED0129 /* Translators.swift in Sources */,
 				5C4D74422A35A9E200591641 /* DonationListView.swift in Sources */,
 				5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */,
 				5CCD80072A34DC2800CCE8D5 /* Authentication.swift in Sources */,

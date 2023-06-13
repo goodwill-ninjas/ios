@@ -59,15 +59,16 @@ class BloodCentersViewModel: ObservableObject {
         }
         print("getBloodCenterById called")
         DispatchQueue.global(qos: .userInitiated).async {
-            Requester.shared.getBloodCenterbyId(city: self.city) { [self] result in
+            Requester.shared.getBloodCenterById(city: city) { [self] result in
                 print("getBloodCenterById response: \(result)")
                 withAnimation {
                     registerPending = false
                 }
-                switch result {
-                case .success(let bloodCenter):
-                    
-                }
+//                TODO: on success - should be accessible from the ViewModel
+//                switch result {
+//                case .success(let bloodCenter):
+//
+//                }
             }
         }
     }

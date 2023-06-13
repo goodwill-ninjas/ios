@@ -31,12 +31,19 @@ class DonationViewModel: ObservableObject {
                     withAnimation {
                         self.showAuthContainer = false
                     }
-                case .serverError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "add_donation_server_err", message: Errors.messageFor(err: err.message))
+                case .serverError(_):
+                    withAnimation {
+                        self.showAuthContainer = false
+                    }
                 case .networkError(_):
-                    alert = IdentifiableAlert.networkError()
-                case .authError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "add_donation_err", message: Errors.messageFor(err: err.message))
+                    withAnimation {
+                        self.showAuthContainer = false
+                    }
+                case .authError(_):
+                    withAnimation {
+                        self.showAuthContainer = false
+                    }
+
                 }
             }
         }
