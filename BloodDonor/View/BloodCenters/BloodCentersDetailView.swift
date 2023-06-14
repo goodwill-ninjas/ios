@@ -44,7 +44,7 @@ struct BloodCentersDetailView: View {
                 ScrollView {
                     VStack(alignment: .leading) {
                         Text(bloodCentersDetailVm.bloodCenterBankDetails!.name)
-                            .font(.title)
+                            .font(.largeTitle)
                         
                         HStack {
                             Text(bloodCentersDetailVm.bloodCenterBankDetails!.street_name + " " + bloodCentersDetailVm.bloodCenterBankDetails!.street_number)
@@ -63,8 +63,22 @@ struct BloodCentersDetailView: View {
                             }
                         }
                         
-                        Text("Zapasy krwi")
-                            .font(.title2)
+                        HStack {
+                            Text("Zapasy krwi")
+                                .font(.title)
+                            Spacer()
+                            VStack (alignment: .trailing) {
+                                Text("Stan na: ")
+                                .italic()
+                                Spacer()
+                                Text(formatSourceDatetime(dateString: String((bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details?.first!.source_datetime)!)))
+                                .italic()
+                            }
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            
+                        }
+                        
                         VStack {
                             ForEach(bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details!, id: \.id) { bloodCenter in
                                 HStack {
@@ -159,6 +173,18 @@ private func imageCount(for capacity: String) -> Int {
     default:
         return 0
     }
+}
+
+private func formatSourceDatetime(dateString: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = formatter.date(from: dateString) {
+            formatter.dateFormat = "dd.MM.yyyy HH:mm"
+            let formattedDate = formatter.string(from: date)
+            return formattedDate
+        }
+        return ""
 }
 
 //struct BloodCentersDetailView_Previews: PreviewProvider {
