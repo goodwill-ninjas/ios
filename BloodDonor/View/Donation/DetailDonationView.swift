@@ -43,14 +43,17 @@ struct DetailDonationView: View {
                                     dismissButton: .default(Text("OK"))
                                 )
                             }
-                        Text("g/l")
+                        Text("mm Hg")
                     }
                 }
                 Section(header: Text("Hemoglobina")) {
-                    TextField("Hemoglobina", text: Binding<String>(
-                        get: { String(hemoglobin) },
-                        set: { if let value = Int($0) { hemoglobin = value } }
-                    ))
+                    HStack{
+                        TextField("Hemoglobina", text: Binding<String>(
+                            get: { String(hemoglobin) },
+                            set: { if let value = Int($0) { hemoglobin = value } }
+                        ))
+                        Text("g/l")
+                    }
                 }
                 Section(header: Text("Podaj wynik badania")) {
                     TextEditor(text: $details)

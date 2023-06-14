@@ -2,30 +2,33 @@ import SwiftUI
 
 struct BloodCentersListView: View {
     @EnvironmentObject var bloodCentersVm: BloodCentersViewModel
+    @State private var seafarerControl: Bool = false
     
     var body: some View {
-        VStack {
-            switch bloodCentersVm.checkProgress {
-            case .finished:
-                List(bloodCentersVm.bloodCenters, id: \.id) { bloodCenter in
-                    NavigationLink {
-                        BloodCentersDetailView(city: bloodCenter.city)
-                    } label: {
-                        VStack{
-                            HStack() {
-                                Text("🏥")
-                                    .font(.system(size: 50))
-                                VStack (alignment: .leading){
-                                    Text(bloodCenter.name)
-                                        .font(.headline)
-                                    Text("Województwo \(bloodCenter.voivodeship)")
-                                        .font(.subheadline)
+        NavigationView {
+            VStack {
+                switch bloodCentersVm.checkProgress {
+                case .finished:
+                    List(bloodCentersVm.bloodCenters, id: \.id) { bloodCenter in
+                        NavigationLink {
+                            BloodCentersDetailView(city: bloodCenter.city)
+                        } label: {
+                            VStack{
+                                HStack() {
+                                    Text("🏥")
+                                        .font(.system(size: 50))
+                                    VStack (alignment: .leading){
+                                        Text(bloodCenter.name)
+                                            .font(.headline)
+                                        Text("Województwo \(bloodCenter.voivodeship)")
+                                            .font(.subheadline)
+                                    }
                                 }
+                                
                             }
-                            
                         }
                     }
-                }
+                    .edgesIgnoringSafeArea(.top)
                 case .error:
                     Spacer()
                     Text("An error occurred while loading data")
@@ -54,11 +57,13 @@ struct BloodCentersListView: View {
                     Spacer()
                 }
             }
-                .navigationBarTitle("Lista Placówek", displayMode: .inline)
-                .onAppear {
-                    if bloodCentersVm.bloodCenters.isEmpty {
-                        bloodCentersVm.getBloodCenters()
-                    }
+            .navigationBarTitle("Lista Placówek", displayMode: .inline)
+            .onAppear {
+                if bloodCentersVm.bloodCenters.isEmpty {
+                    bloodCentersVm.getBloodCenters()
                 }
+            }
         }
+        .edgesIgnoringSafeArea(.top)
     }
+}
