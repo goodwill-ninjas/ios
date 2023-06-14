@@ -13,11 +13,11 @@ struct BloodCentersDetailView: View {
     var city: String
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
-    var region: CLLocationCoordinate2D?
+    @State private var region: CLLocationCoordinate2D?
     
     init(city: String) {
         self.city = city
-        
+        self._region = State(initialValue: nil)
     }
     
     var body: some View {
@@ -25,9 +25,22 @@ struct BloodCentersDetailView: View {
             switch bloodCentersDetailVm.checkProgress {
             case .finished:
                 // TODO: Restore MapView
-//                BloodCenterMapView(coordinate: region!)
-//                    .ignoresSafeArea(edges: .top)
-//                    .frame(height: 100)
+                VStack {
+                    if let region = region {
+                        BloodCenterMapView(coordinate: region)
+                            .ignoresSafeArea(edges: .top)
+                            .frame(height: 100)
+                    } else {
+                        Text("Loading map...")
+                    }
+                }
+                .onAppear {
+                    let geoCoordinatesArr = bloodCentersDetailVm.bloodCenterBankDetails!.geo_coordinates.components(separatedBy: ", ")
+                    if geoCoordinatesArr.count >= 2, let latitude = Double(geoCoordinatesArr[0]), let longitude = Double(geoCoordinatesArr[1]) {
+                        self.region = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    
+                    }
+                }
                 ScrollView {
                     VStack(alignment: .leading) {
                         Text(bloodCentersDetailVm.bloodCenterBankDetails!.name)
@@ -125,14 +138,6 @@ struct BloodCentersDetailView: View {
             }
         }
     }
-    
-//    private mutating func calculateGeoCoordinates() {
-//        let geoCoordinatesArr = bloodCentersDetailVm.bloodCenterBankDetails!.geo_coordinates.components(separatedBy: ", ")
-//        // Add variable to substring geoCoordinates into latitude & longitude
-//        latitude = Double(geoCoordinatesArr[0])!
-//        longitude = Double(geoCoordinatesArr[1])!
-//        region = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
-//    }
 }
 
 private func imageCount(for capacity: String) -> Int {
