@@ -14,83 +14,87 @@ struct DonationListView: View {
         VStack {
             switch donationList.loadingState {
             case .finished:
-                List(donationList.userDonations, id: \.id) {
-                    userDonation in VStack() {
-                        if (userDonation.disqualified) {
-                            Text("🚫 Dyskwalifikacja na \(userDonation.disqualification_days!) dni  ")
-                                .font(.headline)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            
-                            Text(trimDate(userDonation.donated_at))
-                                .font(.caption2)
-                                .italic()
-                            
-                            if (userDonation.details != nil) {
-                                Text("\n\(userDonation.details!)")
-                                    .font(.caption)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                        } else {
-                            Text("🩸 \(BloodTypeTranslator.translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
-                                .font(.headline)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            
-                            Text(trimDate(userDonation.donated_at))
-                                .font(.caption2)
-                                .italic()
-                            
-                            if(userDonation.hemoglobin != nil ||
-                               userDonation.blood_pressure != nil) {
-                                Spacer()
-                            }
-                            
-                            HStack() {
-                                if (userDonation.hemoglobin != nil) {
-                                    VStack() {
-                                        Text("Poziom hemoglobiny")
-                                            .font(.caption)
-                                            .bold()
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                        Text("\(userDonation.hemoglobin!) g/l")
+                List() {
+                    ForEach(donationList.userDonations, id: \.id) { userDonation in
+                        VStack() {
+                            if (userDonation.disqualified) {
+                                Text("🚫 Dyskwalifikacja na \(userDonation.disqualification_days!) dni  ")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                
+                                Text(trimDate(userDonation.donated_at))
+                                    .font(.caption2)
+                                    .italic()
+                                
+                                if (userDonation.details != nil) {
+                                    Text("\n\(userDonation.details!)")
+                                        .font(.caption)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                            } else {
+                                Text("🩸 \(BloodTypeTranslator.translateBloodType(type: userDonation.donated_type)) - \(userDonation.amount)ml")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                
+                                Text(trimDate(userDonation.donated_at))
+                                    .font(.caption2)
+                                    .italic()
+                                
+                                if(userDonation.hemoglobin != nil ||
+                                   userDonation.blood_pressure != nil) {
+                                    Spacer()
+                                }
+                                
+                                HStack() {
+                                    if (userDonation.hemoglobin != nil) {
+                                        VStack() {
+                                            Text("Poziom hemoglobiny")
+                                                .font(.caption)
+                                                .bold()
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            
+                                            Text("\(userDonation.hemoglobin!) g/l")
+                                                .font(.caption)
+                                                .italic()
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        }
+                                    }
+                                    
+                                    if (userDonation.blood_pressure != nil) {
+                                        VStack() {
+                                            Text("Ciśnienie krwi")
+                                                .font(.caption)
+                                                .bold()
+                                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                            
+                                            Text("\(userDonation.blood_pressure!) mm Hg")
+                                                .font(.caption)
+                                                .italic()
+                                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                        }
+                                    }
+                                }
+                                
+                                if let arm = userDonation.arm {
+                                    Spacer()
+                                    if let conjugatedArm = ArmConjugation(rawValue: arm) {
+                                        Text("Ręka użyta do pobrania: \(conjugatedArm.conjugateArm())")
                                             .font(.caption)
                                             .italic()
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
                                 
-                                if (userDonation.blood_pressure != nil) {
-                                    VStack() {
-                                        Text("Ciśnienie krwi")
-                                            .font(.caption)
-                                            .bold()
-                                            .frame(maxWidth: .infinity, alignment: .trailing)
-                                        
-                                        Text("\(userDonation.blood_pressure!) mm Hg")
-                                            .font(.caption)
-                                            .italic()
-                                            .frame(maxWidth: .infinity, alignment: .trailing)
-                                    }
-                                }
-                            }
-                            
-                            if let arm = userDonation.arm {
-                                Spacer()
-                                if let conjugatedArm = ArmConjugation(rawValue: arm) {
-                                    Text("Ręka użyta do pobrania: \(conjugatedArm.conjugateArm())")
+                                if (userDonation.details != nil) {
+                                    Text("\n\(userDonation.details!)")
                                         .font(.caption)
-                                        .italic()
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                            
-                            if (userDonation.details != nil) {
-                                Text("\n\(userDonation.details!)")
-                                    .font(.caption)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
                         }
                     }
+                    .onDelete(perform: deleteItem)
+                    
                 }
                 .onAppear() {
                     donationList.getUserDonations()
@@ -130,5 +134,10 @@ struct DonationListView: View {
     }
     let trimDate: (String) -> String = { date in
         return date.components(separatedBy: "T").first ?? ""
+    }
+    
+    func deleteItem(at offsets: IndexSet) {
+        
+        donationList.userDonations.remove(atOffsets: offsets)
     }
 }
