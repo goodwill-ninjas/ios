@@ -38,7 +38,7 @@ struct ProfileView: View {
                             
                             // Username, title, level, exp
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Witaj, \(userProfile.userInfo?.username ?? " ponownie")!")
+                                Text("Witaj, \(UserDefaultsWorker.shared.getDisplayName() ?? " ponownie")!")
                                     .font(.title)
                                     .foregroundColor(Color.black.opacity(0.8))
                                     .lineLimit(nil)

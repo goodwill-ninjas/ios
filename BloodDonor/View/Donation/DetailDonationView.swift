@@ -52,7 +52,7 @@ struct DetailDonationView: View {
                         set: { if let value = Int($0) { hemoglobin = value } }
                     ))
                 }
-                Section(header: Text("Dodatkowe informacje")) {
+                Section(header: Text("Podaj wynik badania")) {
                     TextEditor(text: $details)
                         .frame(height: 100)
                         .multilineTextAlignment(.leading)
@@ -73,11 +73,13 @@ struct DetailDonationView: View {
                     }
                 }) {
                     Text("Zapisz")
-                        .frame(maxWidth: .infinity, alignment: .center)
                 }
-                .background(Color.red)
+                .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
+                .background(Color.blue)
+                .foregroundColor(Color.white)
+                .cornerRadius(8)
             }
-            .navigationBarTitle(Text("Zaawansowane"))
+            .navigationBarTitle(Text("Dodatkowe informacje"))
         }
     }
 }

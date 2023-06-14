@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AddDonationView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var donationVM: DonationViewModel
     @State private var disqualified: Bool = false
     @State private var companionUserID: Int?
@@ -14,6 +15,7 @@ struct AddDonationView: View {
     @State private var selectedDate: Date = Date()
     @State private var disqualificationDays: Int = 0
     @State var isShowingAdvancedForm = false
+    @State private var isButtonPressed = false
     
     var body: some View {
         NavigationView {
@@ -40,7 +42,7 @@ struct AddDonationView: View {
                     Button(action: {
                         self.isShowingAdvancedForm.toggle()
                     }) {
-                        Text("Zaawansowane")
+                        Text("Dodatkowe informacje")
                             .foregroundColor(.red)
                             .underline()
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -73,6 +75,10 @@ struct AddDonationView: View {
         }
     }
     
+    func dismissView() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
     func addDonation() {
         donationVM.addDonation(
             user_id: UserDefaultsWorker.shared.getUserId() ?? 0,
@@ -87,5 +93,6 @@ struct AddDonationView: View {
             donated_at: donatedAt,
             disqualification_days: disqualificationDays
         )
+        dismissView()
     }
 }

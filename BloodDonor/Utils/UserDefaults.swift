@@ -28,9 +28,9 @@ class UserDefaultsWorker {
         return userId
     }
     
-    func getDisplayName() -> Int? {
+    func getDisplayName() -> String? {
         let defaults = UserDefaults.standard
-        let displayName = defaults.object(forKey: "displayName") as? Int
+        let displayName = defaults.object(forKey: "displayName") as? String
         return displayName
     }
     
