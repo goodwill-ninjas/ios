@@ -90,7 +90,11 @@ struct BloodCentersDetailView: View {
                 Spacer()
                 Button(action: {
                     guard let phoneNumber = bloodCentersDetailVm.bloodCenterBankDetails?.phone_number,
-                          let number = URL(string: "tel://" + phoneNumber) else { return }
+                          let number = URL(string: "tel://" + phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) else {
+                        print("Invalid phone number")
+                        return
+                    }
+                    
                     if UIApplication.shared.canOpenURL(number) {
                         UIApplication.shared.open(number)
                     } else {
