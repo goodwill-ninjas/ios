@@ -14,8 +14,8 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                switch userProfile.loadingState {
-                case .finished:
+                switch (userProfile.userInfoLoadingState, userProfile.userFeatsLoadingState) {
+                case (.finished, .finished):
                     VStack {
                         // User Avatar
                         HStack {
@@ -38,7 +38,7 @@ struct ProfileView: View {
                             
                             // Username, title, level, exp
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Witaj, \(userProfile.userInfo!.username)!")
+                                Text("Witaj, \(userProfile.userInfo?.username ?? " ponownie")!")
                                     .font(.title)
                                     .foregroundColor(Color.black.opacity(0.8))
                                     .lineLimit(nil)
@@ -48,11 +48,13 @@ struct ProfileView: View {
                                     .foregroundColor(Color.black.opacity(0.7))
                                     .padding(.top, 2)
                                 
-                                Text("Poziom: \(userProfile.userInfo!.exp_details.level)")
+                                Text("Poziom: \(userProfile.userInfo?.exp_details.level ?? 1)")
                                     .foregroundColor(Color.black.opacity(0.7))
                                 
                                 HStack() {
-                                    let expPercentage = (Float(userProfile.userInfo!.exp_details.current_experience - userProfile.userInfo!.exp_details.min_experience) / Float(userProfile.userInfo!.exp_details.max_experience - userProfile.userInfo!.exp_details.min_experience)) * 100
+                                    let expPercentage = userProfile.userInfo == nil
+                                    ? 0
+                                    : (Float(userProfile.userInfo!.exp_details.current_experience - userProfile.userInfo!.exp_details.min_experience) / Float(userProfile.userInfo!.exp_details.max_experience - userProfile.userInfo!.exp_details.min_experience)) * 100
                                     Text("\(userProfile.userInfo!.exp_details.min_experience)")
                                         .font(.caption)
                                         .italic()
@@ -186,21 +188,23 @@ struct ProfileView: View {
                         }
                         
                         Spacer()
+                        
+                        Button("Wyloguj") {
+                            userProfile.logout()
+                        }
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 25)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        .offset(x: 0, y: -10)
+                        
                     }
                     .background(Color.white.edgesIgnoringSafeArea(.all))
-                    .navigationBarItems(trailing: NavigationLink(destination: LoginView().navigationBarHidden(true)) {
-                        Text("Wyloguj")
-                            .foregroundColor(.white)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 25)
-                            .background(Color.red)
-                            .cornerRadius(10)
-                        }
-                    )
                     .onAppear() {
                         userProfile.forceInit()
                     }
-                case .error:
+                case (.error, .error):
                     Spacer()
                     Text("Wczytujemy twoje dane. Spróbuj za chwilę.")
                         .padding(.horizontal, 24)
@@ -218,7 +222,7 @@ struct ProfileView: View {
                     .padding(.top, 16)
                     .padding(.horizontal, 24)
                     Spacer()
-                case .notStarted, .loading:
+                default:
                     Spacer()
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .black))

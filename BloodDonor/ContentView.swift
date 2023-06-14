@@ -17,6 +17,13 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            
+            if UserDefaultsWorker.shared.isLoggedIn() {
+                MainView()
+            } else {
+                LoginView()
+            }
+            
             if mainVm.showAuthContainer {
                 LoginView()
                     .environmentObject(bloodCentersVm)

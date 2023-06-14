@@ -40,7 +40,12 @@ class UserDefaultsWorker {
     }
     
     func dropTokens() {
-        let defaults = UserDefaults.standard
-        defaults.set("", forKey: UserDefaultsWorker.KEY_ACCESS_TOKEN)
+        UserDefaults.standard.set("", forKey: UserDefaultsWorker.KEY_ACCESS_TOKEN)
+        UserDefaults.standard.set("-1", forKey: UserDefaultsWorker.KEY_USER_ID)
+        UserDefaults.standard.set("", forKey: UserDefaultsWorker.KEY_DISPLAY_NAME)
+    }
+    
+    let isLoggedIn: () -> Bool = {
+        return UserDefaultsWorker.shared.getAccessToken().token != ""
     }
 }
