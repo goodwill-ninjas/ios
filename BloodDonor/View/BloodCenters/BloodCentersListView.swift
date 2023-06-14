@@ -28,7 +28,6 @@ struct BloodCentersListView: View {
                             }
                         }
                     }
-                    .edgesIgnoringSafeArea(.top)
                 case .error:
                     Spacer()
                     Text("An error occurred while loading data")
@@ -57,13 +56,12 @@ struct BloodCentersListView: View {
                     Spacer()
                 }
             }
-            .navigationBarTitle("Lista Placówek", displayMode: .inline)
+            .navigationBarTitle("Lista Placówek")
             .onAppear {
                 if bloodCentersVm.bloodCenters.isEmpty {
                     bloodCentersVm.getBloodCenters()
                 }
             }
         }
-        .edgesIgnoringSafeArea(.top)
     }
 }
