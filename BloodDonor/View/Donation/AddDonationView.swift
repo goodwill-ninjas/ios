@@ -11,7 +11,11 @@ struct AddDonationView: View {
     @State private var hemoglobin: Int?
     @State private var arm: String?
     @State private var details: String?
-    @State private var donatedAt: String = ""
+    @State private var donatedAt: String = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SS'Z'"
+        return formatter.string(from: Date())
+    }()
     @State private var selectedDate: Date = Date()
     @State private var disqualificationDays: Int = 0
     @State var isShowingAdvancedForm = false
