@@ -62,22 +62,8 @@ struct BloodCentersDetailView: View {
                                 Text("Otwarte do: \(openTo)")
                             }
                         }
-                        
-                        HStack {
-                            Text("Zapasy krwi")
-                                .font(.title)
-                            Spacer()
-                            VStack (alignment: .trailing) {
-                                Text("Stan na: ")
-                                .italic()
-                                Spacer()
-                                Text(formatSourceDatetime(dateString: String((bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details?.first!.source_datetime)!)))
-                                .italic()
-                            }
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            
-                        }
+                        Text("Zapasy krwi")
+                            .font(.title)
                         
                         VStack {
                             ForEach(bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details!, id: \.id) { bloodCenter in
@@ -97,31 +83,41 @@ struct BloodCentersDetailView: View {
                         
                         
                     }
+                    Divider()
+                    
+                    HStack {
+                        Text("Stan na: ")
+                        Spacer()
+                        Text(formatSourceDatetime(dateString: String((bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details?.first!.source_datetime)!)))
+                    }
+                    .italic()
+                    .foregroundColor(.gray)
+                    
+                    Spacer()
+                    Button(action: {
+                        guard let phoneNumber = bloodCentersDetailVm.bloodCenterBankDetails?.phone_number,
+                              let number = URL(string: "tel://" + phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) else {
+                            print("Invalid phone number")
+                            return
+                        }
+                        
+                        if UIApplication.shared.canOpenURL(number) {
+                            UIApplication.shared.open(number)
+                        } else {
+                            print("Can't open url on this device")
+                        }
+                        
+                    }, label: {
+                        Text("📞 Zadzwoń do centrum")
+                            .frame(width: 250, height: 50, alignment: .center)
+                            .background(Color.green)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(8)
+                    })
                 }
-                
                 .padding()
-                
-                Spacer()
-                Button(action: {
-                    guard let phoneNumber = bloodCentersDetailVm.bloodCenterBankDetails?.phone_number,
-                          let number = URL(string: "tel://" + phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) else {
-                        print("Invalid phone number")
-                        return
-                    }
-                    
-                    if UIApplication.shared.canOpenURL(number) {
-                        UIApplication.shared.open(number)
-                    } else {
-                        print("Can't open url on this device")
-                    }
-                    
-                }, label: {
-                    Text("📞 Zadzwoń do centrum")
-                        .frame(width: 250, height: 50, alignment: .center)
-                        .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(8)
-                })
+
+
             case .error:
                 Spacer()
                 Text("An error occurred while loading data")
