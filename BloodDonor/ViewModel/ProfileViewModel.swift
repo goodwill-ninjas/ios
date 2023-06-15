@@ -35,6 +35,20 @@ class ProfileViewModel: ObservableObject {
         getUserInfo()
     }
     
+    var formattedCanDonateAfter: String {
+        guard let userInfo = userInfo else {
+            return ""
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ" // Modify the date format as needed
+        if let date = dateFormatter.date(from: userInfo.can_donate_after) {
+            dateFormatter.dateStyle = .long
+            return "\(dateFormatter.string(from: date))"
+        } else {
+            return ""
+        }
+    }
+    
     func getUserInfo () {
         withAnimation {
             userInfoLoadingState = .loading
@@ -55,7 +69,7 @@ class ProfileViewModel: ObservableObject {
                     withAnimation {
                         userInfoLoadingState = .error
                     }
-                    alert = IdentifiableAlert.buildForError(id: "user_info__server_err", message: Errors.messageFor(err: err.message))
+                    alert = IdentifiableAlert.buildForError(id: "user_info_server_err", message: Errors.messageFor(err: err.message))
                 case .networkError(_):
                     withAnimation {
                         userInfoLoadingState = .error

@@ -140,7 +140,6 @@ struct DonationListView: View {
     }
     
     func deleteItem(at offsets: IndexSet) {
-        
         donationList.userDonations.remove(atOffsets: offsets)
     }
 }
