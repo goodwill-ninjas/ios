@@ -28,7 +28,7 @@ class Errors {
         case ERR_WRONG_CREDENTIALS:
             return "Entered wrong login or password"
         default:
-            return "An error has occured. Please check your internet connection and try again"
+            return "Przejdź do ekranu logowania"
         }
     }
     

@@ -23,6 +23,15 @@ struct IdentifiableAlert: Identifiable {
         })
     }
     
+    static func registerSuccess(id: String, message: String) -> IdentifiableAlert {
+        return IdentifiableAlert(id: id, alert: {
+            Alert(
+                title: Text("Zarejestrowano!"),
+                message: Text(message)
+            )
+        })
+    }
+    
     static func networkError() -> IdentifiableAlert {
         return buildForError(id: "network_err", message: "Please check your internet connection and try again")
     }

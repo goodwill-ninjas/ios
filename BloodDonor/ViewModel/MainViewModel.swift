@@ -78,11 +78,11 @@ class MainViewModel: ObservableObject {
                         self.showAuthContainer = false
                     }
                 case .serverError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "login_server_err", message: Errors.messageFor(err: err.message))
+                    alert = IdentifiableAlert.registerSuccess(id: "login_server_err", message: Errors.messageFor(err: err.message))
                 case .networkError(_):
                     alert = IdentifiableAlert.networkError()
                 case .authError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "login_err", message: Errors.messageFor(err: err.message))
+                    alert = IdentifiableAlert.registerSuccess(id: "login_err", message: Errors.messageFor(err: err.message))
                 }
             }
         }
