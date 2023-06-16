@@ -1,126 +1,191 @@
-////
-////  BloodCentersDetailView.swift
-////  BloodDonor
-////
-////  Created by Łukasz Cettler on 11/06/2023.
-////
 //
-//import SwiftUI
-//import CoreLocation
+//  BloodCentersDetailView.swift
+//  BloodDonor
 //
-//struct BloodCentersDetailView: View {
-//    var center: BloodCenters
-//    var bankDetails: [BloodCenterBankDetails]
-//    let latitude: CLLocationDegrees
-//    let longitude: CLLocationDegrees
-//    var region: CLLocationCoordinate2D
-// //   let bloodCenterDataService: BloodCenterDataService
-//    
-//    init(center: BloodCenters, bankDetails: [BloodCenterBankDetails]) {
-//        self.center = center
-//        self.bankDetails = bankDetails
-//        let geoCoordinatesArr = center.geoCoordinates.components(separatedBy: ", ")
-//        
-//        // Add variable to substring geoCoordinates into latitude & longitude
-//        self.latitude = Double(geoCoordinatesArr[0])!
-//        self.longitude = Double(geoCoordinatesArr[1])!
-//        region = CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
-////        self.bloodCenterDataService = BloodCenterDataService()
-//    }
-//    
-//    
-//    var body: some View {
-//        VStack {
-//            BloodCenterMapView(coordinate: region)
-//                .ignoresSafeArea(edges: .top)
-//                .frame(height: 100)
-//            ScrollView {
-//                VStack(alignment: .leading) {
-//                    Text("📍" + center.name)
-//                        .font(.title)
+//  Created by Łukasz Cettler on 11/06/2023.
 //
-//                    HStack {
-//                        Text(center.streetName + " " + center.streetNumber)
-//                    }
-//                    .font(.subheadline)
-//                    .foregroundColor(.secondary)
-//
-//                    Divider()
-//                    
-//                    if let openFrom = center.openFrom, let openTo = center.openTo {
-//                        VStack {
-//                            Text("Godziny otwarcia")
-//                                .font(.title2)
-//                            Text("Otwarte od: \(openFrom)")
-//                            Text("Otwarte do: \(openTo)")
-//                        }
-//                    }
-//                    
-//                    Text("Zapasy krwi")
-//                        .font(.title2)
-//                        .onAppear() {
-//    //                         bloodCenterDataService.fetchBloodCenterBankDetails(city: center.city)
-//                        }
-//                    VStack {
-//                        ForEach(bankDetails, id: \.bloodType) { detail in
-//                            HStack {
-//                                Text(detail.bloodType)
-//                                Spacer()
-//
-//                                ForEach(1...imageCount(for: detail.capacity), id: \.self) { _ in
-//                                    Image("droplet")
-//                                        .resizable()
-//                                        .frame(width: 20, height: 20)
-//                                        .alignmentGuide(.leading) { _ in 20 }
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                }
-//            }
-//
-//            .padding()
-//
-//            Spacer()
-//            Button(action: {
-//                guard let number = URL(string: "tel://" + center.phoneNumber) else { return }
-//                if UIApplication.shared.canOpenURL(number) {
-//                    UIApplication.shared.open(number)
-//                } else {
-//                    print("Can't open url on this device")
-//                }
-//                
-//            }, label: {
-//                Text("📞 Zadzwoń do centrum")
-//                    .frame(width: 250, height: 50, alignment: .center)
-//                    .background(Color.green)
-//                    .foregroundColor(Color.white)
-//                    .cornerRadius(8)
-//             })
-//        }
-//    }
+
+import SwiftUI
+import CoreLocation
+
+struct BloodCentersDetailView: View {
+    @EnvironmentObject var bloodCentersDetailVm: BloodCentersDetailViewModel
+    var city: String
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    @State private var region: CLLocationCoordinate2D?
+    
+    init(city: String) {
+        self.city = city
+        self._region = State(initialValue: nil)
+    }
+    
+    var body: some View {
+        VStack {
+            switch bloodCentersDetailVm.checkProgress {
+            case .finished:
+                // TODO: Restore MapView
+                VStack {
+                    if let region = region {
+                        BloodCenterMapView(coordinate: region)
+                            .ignoresSafeArea(edges: .top)
+                            .frame(height: 100)
+                    } else {
+                        Text("Loading map...")
+                    }
+                }
+                .onAppear {
+                    let geoCoordinatesArr = bloodCentersDetailVm.bloodCenterBankDetails!.geo_coordinates.components(separatedBy: ", ")
+                    if geoCoordinatesArr.count >= 2, let latitude = Double(geoCoordinatesArr[0]), let longitude = Double(geoCoordinatesArr[1]) {
+                        self.region = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    
+                    }
+                }
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text(bloodCentersDetailVm.bloodCenterBankDetails!.name)
+                            .font(.largeTitle)
+                        
+                        HStack {
+                            Text(bloodCentersDetailVm.bloodCenterBankDetails!.street_name + " " + bloodCentersDetailVm.bloodCenterBankDetails!.street_number)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        
+                        Divider()
+                        
+                        if let openFrom = bloodCentersDetailVm.bloodCenterBankDetails!.open_from, let openTo = bloodCentersDetailVm.bloodCenterBankDetails!.open_to {
+                            VStack {
+                                Text("Godziny otwarcia")
+                                    .font(.title2)
+                                Text("Otwarte od: \(openFrom)")
+                                Text("Otwarte do: \(openTo)")
+                            }
+                        }
+                        Text("Zapasy krwi")
+                            .font(.title)
+                        
+                        VStack {
+                            ForEach(bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details!, id: \.id) { bloodCenter in
+                                HStack {
+                                    Text(bloodCenter.blood_type)
+                                    Spacer()
+                                    
+                                    ForEach(1...imageCount(for: bloodCenter.capacity), id: \.self) { _ in
+                                        Image("droplet")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                            .alignmentGuide(.leading) { _ in 20 }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+                    Divider()
+                    
+                    HStack {
+                        Text("Stan na: ")
+                        Spacer()
+                        Text(formatSourceDatetime(dateString: String((bloodCentersDetailVm.bloodCenterBankDetails!.blood_center_details?.first!.source_datetime)!)))
+                    }
+                    .italic()
+                    .foregroundColor(.gray)
+                    
+                    Spacer()
+                    Button(action: {
+                        guard let phoneNumber = bloodCentersDetailVm.bloodCenterBankDetails?.phone_number,
+                              let number = URL(string: "tel://" + phoneNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) else {
+                            print("Invalid phone number")
+                            return
+                        }
+                        
+                        if UIApplication.shared.canOpenURL(number) {
+                            UIApplication.shared.open(number)
+                        } else {
+                            print("Can't open url on this device")
+                        }
+                        
+                    }, label: {
+                        Text("📞 Zadzwoń do centrum")
+                            .frame(width: 250, height: 50, alignment: .center)
+                            .background(Color.green)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(8)
+                    })
+                }
+                .padding()
+
+
+            case .error:
+                Spacer()
+                Text("An error occurred while loading data")
+                    .padding(.horizontal, 24)
+                Button {
+                    bloodCentersDetailVm.getBloodCenterById(city: city)
+                } label: {
+                    Text("Retry")
+                        .foregroundColor(Color.white)
+                        .fontWeight(.bold)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 50)
+                        .background(Color.black)
+                }
+                .cornerRadius(10)
+                .padding(.top, 16)
+                .padding(.horizontal, 24)
+                Spacer()
+                
+            case .notStarted, .loading:
+                Spacer()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                    .scaleEffect(1.6)
+                    .padding(.top, 26)
+                Spacer()
+            }
+        }
+        .onAppear {
+            if bloodCentersDetailVm.bloodCenters.isEmpty {
+                bloodCentersDetailVm.getBloodCenterById(city: city)
+            }
+        }
+    }
+}
+
+private func imageCount(for capacity: String) -> Int {
+    switch capacity {
+    case "STOP":
+        return 5
+    case "ALMOST_FULL":
+        return 4
+    case "OPTIMAL":
+        return 3
+    case "MODERATE":
+        return 2
+    case "CRITICAL":
+        return 1
+    default:
+        return 0
+    }
+}
+
+private func formatSourceDatetime(dateString: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = formatter.date(from: dateString) {
+            formatter.dateFormat = "dd.MM.yyyy HH:mm"
+            let formattedDate = formatter.string(from: date)
+            return formattedDate
+        }
+        return ""
+}
+
+//struct BloodCentersDetailView_Previews: PreviewProvider {
+//   static var previews: some View {
+//       BloodCentersDetailView()
+//   }
 //}
-//
-//private func imageCount(for capacity: String) -> Int {
-//        switch capacity {
-//        case "STOP":
-//            return 5
-//        case "ALMOST_FULL":
-//            return 4
-//        case "OPTIMAL":
-//            return 3
-//        case "MODERATE":
-//            return 2
-//        case "CRITICAL":
-//            return 1
-//        default:
-//            return 0
-//        }
-//}
-//
-////struct BloodCentersDetailView_Previews: PreviewProvider {
-////    static var previews: some View {
-////        BloodCentersDetailView()
-////    }
-////}
+

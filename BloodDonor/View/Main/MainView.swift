@@ -67,12 +67,6 @@ struct MainView: View {
                 }
                 .background(Color.white.edgesIgnoringSafeArea(.bottom))
         }
-    }
-}
-
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+        .accentColor(Color(red: 1.0, green: 0.34, blue: 0.34))
     }
 }

@@ -1,5 +1,7 @@
 import Foundation
 import SwiftUI
+import JWTDecode
+
 //This means it can be used as a view model in SwiftUI and allows for observing changes to its published properties
 
 class MainViewModel: ObservableObject {
@@ -17,15 +19,6 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func getUserID(from jwtToken: String) throws -> Int {
-        guard let payload = try decode(jwtToken: jwtToken) as? [String: Any],
-              let user = payload["user"] as? [String: Any],
-              let userID = user["userID"] as? Int else {
-            throw DecodeErrors.other
-        }
-        return userID
-    }
-    
     func login(email: String, password: String) {
         withAnimation {
             loginPending = true
@@ -39,14 +32,21 @@ class MainViewModel: ObservableObject {
                 }
                 switch result {
                 case .success(let user):
-//                    let token = user.token
-//                    print("Token: \(token)")
-//                    do {
-//                        let userID = try getUserID(from: token)
-//                        print("User ID: \(userID)")
-//                    } catch {
-//                        print("Failed to extract user ID: \(error)")
-//                    }
+                    do {
+                        let jwt = try decode(jwt: user.token)
+                        if let userId = decodeJWTforUserID(jwtToken: user.token) {
+                            if let displayName = extractDisplayNameFromJWT(jwtToken: user.token) {
+                                UserDefaultsWorker.shared.saveAuthTokens(tokens: user.getTokensInfo(), userId: userId, displayName: displayName)
+//                                if let userId = UserDefaultsWorker.shared.getUserId() {
+//                                    print("User ID:", userId)
+//                                }
+                            }
+                        }
+                    } catch let error {
+                        // Handle the error thrown by the decode function
+                        print("JWT decoding error: \(error)")
+                        // Show an error message or handle the error appropriately
+                    }
                     withAnimation {
                         self.showAuthContainer = false
                     }
@@ -78,11 +78,11 @@ class MainViewModel: ObservableObject {
                         self.showAuthContainer = false
                     }
                 case .serverError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "login_server_err", message: Errors.messageFor(err: err.message))
+                    alert = IdentifiableAlert.registerSuccess(id: "login_server_err", message: Errors.messageFor(err: err.message))
                 case .networkError(_):
                     alert = IdentifiableAlert.networkError()
                 case .authError(let err):
-                    alert = IdentifiableAlert.buildForError(id: "login_err", message: Errors.messageFor(err: err.message))
+                    alert = IdentifiableAlert.registerSuccess(id: "login_err", message: Errors.messageFor(err: err.message))
                 }
             }
         }

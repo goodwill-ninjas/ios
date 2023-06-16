@@ -6,7 +6,7 @@ struct RegisterView: View {
     @State private var email = ""
     @State private var username = ""
     @State private var password = ""
-    @State private var blood_type = ""
+    @State private var blood_type = "0 Rh-"
     @State private var gender = ""
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
@@ -37,18 +37,31 @@ struct RegisterView: View {
                 .frame(width: 300, height: 50)
                 .background(Color.blue.opacity(0.05))
                 .cornerRadius(10)
-            TextField("Grupa krwi", text: $blood_type)
-                .padding()
+            HStack(){
+                Text("Grupa krwi: ")
+                    .font(.subheadline)
+                    .padding(.leading)
+                Picker("Grupa krwi", selection: $blood_type) {
+                    Text("0 Rh-").tag("0 Rh-")
+                    Text("0 Rh+").tag("0 Rh+")
+                    Text("A Rh-").tag("A Rh-")
+                    Text("A Rh+").tag("A Rh+")
+                    Text("B Rh-").tag("B Rh-")
+                    Text("B Rh+").tag("B Rh+")
+                    Text("AB Rh-").tag("AB Rh-")
+                    Text("AB Rh+").tag("AB Rh+")
+                }
+                .pickerStyle(.inline)
                 .disabled(mainVm.registerPending)
-                .frame(width: 300, height: 50)
-                .background(Color.blue.opacity(0.05))
-                .cornerRadius(10)
-            TextField("Płeć", text: $gender)
-                .padding()
-                .disabled(mainVm.registerPending)
-                .frame(width: 300, height: 50)
-                .background(Color.blue.opacity(0.05))
-                .cornerRadius(10)
+            }
+            .frame(width: 300, height: 50)
+            Picker(selection: $gender, label: Text("Płeć")) {
+                Text("Mężczyzna").tag("Male")
+                Text("Kobieta").tag("Female")
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .disabled(mainVm.registerPending)
+            .padding(.horizontal, 45)
             
             if mainVm.registerPending {
                 ProgressView()

@@ -1,15 +1,16 @@
 import Foundation
 
 class Requester {
-    
+ 
     static let shared = Requester()
 
     private var accessToken = UserDefaultsWorker.shared.getAccessToken()
+
     
     private init() {}
     
-    private func onTokensRefreshed(tokens: TokensInfo) {
-        UserDefaultsWorker.shared.saveAuthTokens(tokens: tokens)
+    private func onTokensRefreshed(tokens: TokensInfo, userId: Int, displayName: String) {
+        UserDefaultsWorker.shared.saveAuthTokens(tokens: tokens, userId: userId, displayName: displayName)
         accessToken = TokenInfo(token: tokens.token)
     }
     
@@ -45,7 +46,18 @@ class Requester {
     
     private func handleAuthResponse(response: Result<User>, onResult: @escaping (Result<User>) -> Void) {
         if case .success(let user) = response {
-            self.onTokensRefreshed(tokens: user.getTokensInfo())
+            let jwtToken = user.token
+            if let userId = decodeJWTforUserID(jwtToken: jwtToken) {
+                if let displayName = extractDisplayNameFromJWT(jwtToken: jwtToken) {
+                    self.onTokensRefreshed(tokens: user.getTokensInfo(), userId: userId, displayName: displayName)
+                } else {
+                    // Handle the case when extracting the displayName from JWT fails
+                    // Show an error message or handle the error appropriately
+                }
+            } else {
+                // Handle the case when decoding the JWT for userId fails
+                // Show an error message or handle the error appropriately
+            }
         }
         onResult(response)
     }
@@ -68,15 +80,63 @@ class Requester {
         }
     }
     
-//    func getBloodCenter(onResult: @escaping (Result<[BloodCenters]>) -> Void) {
-//        let url = Endpoint.bloodCenters.absoluteURL
-//        let request = formRequest(url: url, data: Data(), method: "GET")
-//        self.request(request: request, onResult: onResult)
-//    }
-//    
+    func getUserDonations(onResult: @escaping (Result<[Donation]>) -> Void) {
+        let url = Endpoint.userDonations.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
+    func addDonation(donationBody: AddDonation, onResult: @escaping (Result<User>) -> Void) {
+        let url = Endpoint.addDonation.absoluteURL
+        let body = try! JSONEncoder().encode(donationBody)
+        let request = formRequest(url: url, data: body, method: "POST")
+        self.doRequest(request: request) { [self] result in
+            self.handleAuthResponse(response: result, onResult: onResult)
+        }
+    }
+    
+    func getUserInfo(onResult: @escaping (Result<UserInfo>) -> Void) {
+        let url = Endpoint.getUser.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
+    func getBloodCenter(onResult: @escaping (Result<[BloodCenters]>) -> Void) {
+        let url = Endpoint.bloodCenters.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
+    func getUserFeats(onResult: @escaping (Result<[UserFeats]>) -> Void) {
+        let url = Endpoint.userFeats.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
+    func getBloodCenterById(city: String, onResult: @escaping (Result<BloodCenters>) -> Void) {
+        var url = Endpoint.bloodCentersDetails.absoluteURL
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            // Handle invalid URL here
+            return
+        }
+        
+        // Find and replace the "{city}" placeholder in the URL path
+        urlComponents.path = urlComponents.path.replacingOccurrences(of: "city", with: city)
+        
+        // Create the modified URL from the updated components
+        guard let modifiedURL = urlComponents.url else {
+            // Handle invalid URL here
+            return
+        }
+        
+        let request = formRequest(url: modifiedURL, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
     
     func request<T: Decodable>(request: URLRequest, onResult: @escaping (Result<T>) -> Void) {
         print("request called")
+        doRequest(request: request, onResult: onResult)
     }
     
     func doRequest<T: Decodable>(request: URLRequest, onResult: @escaping (Result<T>) -> Void) {

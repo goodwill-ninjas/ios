@@ -8,67 +8,81 @@
 import SwiftUI
 
 struct DetailDonationView: View {
-    @State private var bloodTypeIndex = 0
-    @State private var donationDate = Date()
-    @State private var bloodAmount = 450
-    @State private var pressureName = "0:0"
-    @State private var hemoglobin = ""
-    @State private var others = ""
-    @State private var handsIndex = 0
-    @State var isShowingAdvancedForm = false // dodajemy stan, aby przechowywać informację o tym, czy widok "AdvancedFormSwiftUI" jest widoczny
+    @Environment(\.presentationMode) var presentationMode
+    @State private var bloodPressure: String = "120/80"
+    @State private var hemoglobin: Int = 0
+    @State private var arm: String = ""
+    @State private var details: String = ""
+    @State var isShowingAdvancedForm = false
+    @State private var showAlert = false
     
-    let bloodTypes = ["Krew pełna", "Płytki krwi", "Osocze", "Krwinki czerwone", "Krwinki białe"]
-    let bloodAmounts = Array(stride(from: 50, through: 1000, by: 50))
-    let hand = ["Lewa", "Prawa"]
+    var addDonationAction: ((String?, Int?, String?, String?) -> Void)?
     
-    
-    func dismiss() {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        }
-    
-    var body: some View {
-        VStack {
-            NavigationView {
-                Form {
-                    Section(header: Text("Ciśnienie")){
-                        TextField("Ciśnienie", text: $pressureName)
-                    }
-                    Section(header: Text("Hemoglobina")){
-                        TextField("Hemoglobina", text: $hemoglobin)
-                    }
-                    Section(header: Text("Inne")){
-                        TextEditor(text: $others)
-                            .frame(height: 100)
-                            .multilineTextAlignment(.leading)
-                    }
-                    Section(header: Text("Ręka")){
-                        Picker("Ręka", selection: $handsIndex) {
-                            ForEach(0 ..< hand.count){
-                                Text(self.hand[$0]).tag($0)
-                            }
-                        }.pickerStyle(.segmented)
-                    }
-                    
-                    
-                    Button(action: {
-                        self.dismiss()
-                    }, label: {
-                        Text("Powrót")
-                            .frame(width: 250, height: 50, alignment: .center)
-                            .background(Color.blue)
-                            .foregroundColor(Color.white)
-                            .cornerRadius(8)
-                    })
-                    .padding()
-                }
-                .navigationBarTitle(Text("Krew pełna"))
-            }
+    private func validateInput() -> Bool {
+        let regexPattern = #"^\d{1,3}/\d{1,3}$"#
+        do {
+            let regex = try NSRegularExpression(pattern: regexPattern, options: [])
+            let range = NSRange(location: 0, length: bloodPressure.utf16.count)
+            return regex.firstMatch(in: bloodPressure, options: [], range: range) != nil
+        } catch {
+            print("Invalid regular expression: \(error)")
+            return false
         }
     }
-}
-
-struct DetailDonationView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailDonationView()
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Ciśnienie")) {
+                    HStack{
+                        TextField("Ciśnienie", text: $bloodPressure)
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Nieprawidłowe dane"),
+                                    message: Text("Ciśnienie krwi musi mieć format 'X/Y', gdzie X i Y są liczbami o maksymalnej długości 3 miejsc."),
+                                    dismissButton: .default(Text("OK"))
+                                )
+                            }
+                        Text("mm Hg")
+                    }
+                }
+                Section(header: Text("Hemoglobina")) {
+                    HStack{
+                        TextField("Hemoglobina", text: Binding<String>(
+                            get: { String(hemoglobin) },
+                            set: { if let value = Int($0) { hemoglobin = value } }
+                        ))
+                        Text("g/l")
+                    }
+                }
+                Section(header: Text("Podaj wynik badania")) {
+                    TextEditor(text: $details)
+                        .frame(height: 100)
+                        .multilineTextAlignment(.leading)
+                }
+                Section(header: Text("Ręka")) {
+                    Picker(selection: $arm, label: Text("Ręka")) {
+                        Text("Lewa").tag("left")
+                        Text("Prawa").tag("right")
+                    }
+                    .pickerStyle(.segmented)
+                }
+                Button(action: {
+                    if validateInput() {
+                        addDonationAction?(bloodPressure, hemoglobin, arm, details)
+                        presentationMode.wrappedValue.dismiss()
+                    } else {
+                        showAlert = true
+                    }
+                }) {
+                    Text("Zapisz")
+                }
+                .frame(maxWidth: .infinity, minHeight: 50, alignment: .center)
+                .background(Color.blue)
+                .foregroundColor(Color.white)
+                .cornerRadius(8)
+            }
+            .navigationBarTitle(Text("Dodatkowe informacje"))
+        }
     }
 }

@@ -8,7 +8,7 @@ enum Endpoint {
     case bloodCenters
     case bloodCentersDetails
     case addDonation
-    case userFeat
+    case userFeats
     case userDonations
     case getUser
     case getFeats
@@ -22,15 +22,15 @@ enum Endpoint {
         case .bloodCenters:
             return "/api/blood-centers"
         case .bloodCentersDetails:
-            return "/api/blood-centers/{city}"
+            return "/api/blood-centers/city"
         case .addDonation:
             return "/api/donations"
-        case .userFeat:
-            return "/api/users/{id}/feats"
+        case .userFeats:
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId() ?? -1)/feats"
         case .userDonations:
-            return "/api/users/{id}/donations"
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId() ?? -1)/donations"
         case .getUser:
-            return "/api/users/{id}"
+            return "/api/users/\(UserDefaultsWorker.shared.getUserId() ?? -1)"
         case .getFeats:
             return "/api/feats"
         }

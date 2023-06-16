@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8EFB5E2A38D90300ED0129 /* Translators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EFB5D2A38D90300ED0129 /* Translators.swift */; };
+		0C8EFB602A38F1B900ED0129 /* BloodCentersDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */; };
+		534AE3A82A37BEBF0092C308 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A72A37BEBF0092C308 /* UserInfo.swift */; };
+		534AE3AA2A37C1FA0092C308 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3A92A37C1FA0092C308 /* UserSettings.swift */; };
+		534AE3AD2A37C25B0092C308 /* UserExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3AC2A37C25B0092C308 /* UserExperience.swift */; };
+		534AE3AF2A37C3E90092C308 /* UserFeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534AE3AE2A37C3E90092C308 /* UserFeats.swift */; };
+		538B7E622A3764C00009A44F /* FeatRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E612A3764C00009A44F /* FeatRank.swift */; };
+		538B7E662A3770C60009A44F /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B7E652A3770C60009A44F /* Donation.swift */; };
 		5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C250B412A34E3DF00EA63C1 /* Extensions.swift */; };
 		5C4D74312A35A7A100591641 /* AddDisqualificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */; };
 		5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4D74332A35A7E700591641 /* BloodCentersListView.swift */; };
@@ -44,10 +52,21 @@
 		5CF22D4D2A35AE3700A7BD85 /* DonationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */; };
 		5CF22D4F2A35C2E500A7BD85 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */; };
 		5CF22D512A35DBD100A7BD85 /* BloodCenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */; };
-		5CF610F32A3653A5000E39A3 /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */; };
+		5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610F52A3733F6000E39A3 /* AddDonation.swift */; };
+		5CF610F92A37385F000E39A3 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 5CF610F82A37385F000E39A3 /* JWTDecode */; };
+		5CF610FD2A375501000E39A3 /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF610FC2A375501000E39A3 /* JWTDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C8EFB5D2A38D90300ED0129 /* Translators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translators.swift; sourceTree = "<group>"; };
+		0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersDetailViewModel.swift; sourceTree = "<group>"; };
+		534AE3A72A37BEBF0092C308 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		534AE3A92A37C1FA0092C308 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		534AE3AC2A37C25B0092C308 /* UserExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExperience.swift; sourceTree = "<group>"; };
+		534AE3AE2A37C3E90092C308 /* UserFeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeats.swift; sourceTree = "<group>"; };
+		538B7E612A3764C00009A44F /* FeatRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatRank.swift; sourceTree = "<group>"; };
+		538B7E652A3770C60009A44F /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		5C0910F32A38D64F00CCC164 /* Translators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translators.swift; sourceTree = "<group>"; };
 		5C250B412A34E3DF00EA63C1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C4D74302A35A7A100591641 /* AddDisqualificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDisqualificationView.swift; sourceTree = "<group>"; };
 		5C4D74332A35A7E700591641 /* BloodCentersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCentersListView.swift; sourceTree = "<group>"; };
@@ -86,7 +105,8 @@
 		5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationListViewModel.swift; sourceTree = "<group>"; };
 		5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5CF22D502A35DBD100A7BD85 /* BloodCenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodCenters.swift; sourceTree = "<group>"; };
-		5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
+		5CF610F52A3733F6000E39A3 /* AddDonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDonation.swift; sourceTree = "<group>"; };
+		5CF610FC2A375501000E39A3 /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +114,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF610F92A37385F000E39A3 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534AE3A52A37BDB90092C308 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				534AE3A72A37BEBF0092C308 /* UserInfo.swift */,
+				534AE3A92A37C1FA0092C308 /* UserSettings.swift */,
+				534AE3AC2A37C25B0092C308 /* UserExperience.swift */,
+				534AE3AE2A37C3E90092C308 /* UserFeats.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		538B7E5E2A37637B0009A44F /* Feat */ = {
+			isa = PBXGroup;
+			children = (
+				538B7E612A3764C00009A44F /* FeatRank.swift */,
+			);
+			path = Feat;
+			sourceTree = "<group>";
+		};
 		5C4D74322A35A7D200591641 /* BloodCenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +265,9 @@
 		5CCD7FF72A34D2B300CCE8D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				534AE3A52A37BDB90092C308 /* User */,
+				538B7E5E2A37637B0009A44F /* Feat */,
+				5CF610F42A373398000E39A3 /* Donation */,
 				5C4D743A2A35A8C800591641 /* Auth */,
 				5C4D74392A35A8BE00591641 /* BloodCenters */,
 			);
@@ -240,6 +283,7 @@
 				5CF22D4A2A35AE2C00A7BD85 /* DonationViewModel.swift */,
 				5CF22D4C2A35AE3700A7BD85 /* DonationListViewModel.swift */,
 				5CF22D4E2A35C2E500A7BD85 /* HomeViewModel.swift */,
+				0C8EFB5F2A38F1B900ED0129 /* BloodCentersDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,10 +306,12 @@
 		5CCD7FFC2A34D2D900CCE8D5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0C8EFB5D2A38D90300ED0129 /* Translators.swift */,
 				5CCD800A2A34DCE500CCE8D5 /* Errors.swift */,
 				5CCD800E2A34DDBA00CCE8D5 /* UserDefaults.swift */,
 				5C250B412A34E3DF00EA63C1 /* Extensions.swift */,
-				5CF610F22A3653A5000E39A3 /* JWTDecoder.swift */,
+				5CF610FC2A375501000E39A3 /* JWTDecoder.swift */,
+				5C0910F32A38D64F00CCC164 /* Translators.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +335,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5CF610F42A373398000E39A3 /* Donation */ = {
+			isa = PBXGroup;
+			children = (
+				5CF610F52A3733F6000E39A3 /* AddDonation.swift */,
+				538B7E652A3770C60009A44F /* Donation.swift */,
+			);
+			path = Donation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +360,9 @@
 			dependencies = (
 			);
 			name = BloodDonor;
+			packageProductDependencies = (
+				5CF610F82A37385F000E39A3 /* JWTDecode */,
+			);
 			productName = BloodDonor;
 			productReference = 5CCD7FE62A34D2A700CCE8D5 /* BloodDonor.app */;
 			productType = "com.apple.product-type.application";
@@ -333,6 +391,9 @@
 				Base,
 			);
 			mainGroup = 5CCD7FDD2A34D2A600CCE8D5;
+			packageReferences = (
+				5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */,
+			);
 			productRefGroup = 5CCD7FE72A34D2A700CCE8D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -372,6 +433,7 @@
 				5C4D743C2A35A90E00591641 /* BloodCenterMapView.swift in Sources */,
 				5C4D74342A35A7E700591641 /* BloodCentersListView.swift in Sources */,
 				5C4D74382A35A88200591641 /* BloodCentersViewModel.swift in Sources */,
+				538B7E662A3770C60009A44F /* Donation.swift in Sources */,
 				5CF22D492A35AE2100A7BD85 /* ProfileViewModel.swift in Sources */,
 				5CCD80012A34D3A200CCE8D5 /* Result.swift in Sources */,
 				5CCD800F2A34DDBA00CCE8D5 /* UserDefaults.swift in Sources */,
@@ -379,21 +441,29 @@
 				5CF22D4D2A35AE3700A7BD85 /* DonationListViewModel.swift in Sources */,
 				5CF22D4F2A35C2E500A7BD85 /* HomeViewModel.swift in Sources */,
 				5CD5ECF82A34E6A80012671F /* LoadingState.swift in Sources */,
+				0C8EFB602A38F1B900ED0129 /* BloodCentersDetailViewModel.swift in Sources */,
 				5CCD800D2A34DD6500CCE8D5 /* TokensInfo.swift in Sources */,
 				5CCD80032A34DA7400CCE8D5 /* User.swift in Sources */,
 				5C4D74442A35A9F700591641 /* DonationView.swift in Sources */,
 				5CD5ECF62A34E5310012671F /* RegisterView.swift in Sources */,
+				534AE3AA2A37C1FA0092C308 /* UserSettings.swift in Sources */,
 				5CD5ECEF2A34E4CB0012671F /* MainViewModel.swift in Sources */,
+				5CF610F62A3733F6000E39A3 /* AddDonation.swift in Sources */,
 				5CCD7FEA2A34D2A700CCE8D5 /* BloodDonorApp.swift in Sources */,
-				5CF610F32A3653A5000E39A3 /* JWTDecoder.swift in Sources */,
+				0C8EFB5E2A38D90300ED0129 /* Translators.swift in Sources */,
 				5C4D74422A35A9E200591641 /* DonationListView.swift in Sources */,
 				5C250B422A34E3DF00EA63C1 /* Extensions.swift in Sources */,
 				5CCD80072A34DC2800CCE8D5 /* Authentication.swift in Sources */,
 				5CF22D4B2A35AE2C00A7BD85 /* DonationViewModel.swift in Sources */,
+				534AE3AF2A37C3E90092C308 /* UserFeats.swift in Sources */,
 				5CCD80052A34DAC200CCE8D5 /* TokenInfo.swift in Sources */,
+				538B7E622A3764C00009A44F /* FeatRank.swift in Sources */,
+				534AE3A82A37BEBF0092C308 /* UserInfo.swift in Sources */,
 				5CCD800B2A34DCE500CCE8D5 /* Errors.swift in Sources */,
 				5CD5ECF42A34E5270012671F /* LoginVIew.swift in Sources */,
 				5CCD80092A34DCC600CCE8D5 /* ErrorResponse.swift in Sources */,
+				5CF610FD2A375501000E39A3 /* JWTDecoder.swift in Sources */,
+				534AE3AD2A37C25B0092C308 /* UserExperience.swift in Sources */,
 				5CA706BA2A34F6F000C319A7 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +601,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,6 +631,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -595,6 +667,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5CF610F82A37385F000E39A3 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CF610F72A37385F000E39A3 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CCD7FDE2A34D2A600CCE8D5 /* Project object */;
 }
