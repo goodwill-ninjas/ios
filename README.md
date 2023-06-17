@@ -13,7 +13,8 @@
 
 Bezpośrednim celem projektu jest przygotowanie aplikacji mobilnej, która przy pomocy metod gamifikacji ma zachęcić dawców krwi i kandydatów na krwiodawców do regularnego oddawania krwi. Aplikacja włączy się do propagacji idei honorowego krwiodawstwa poprzez gamifikację procesu donacji oraz popularyzację akcji krwiodawstwa wśród kandydatów na krwiodawców. Dodatkową motywacją do oddawania krwi będzie wizualizacja postępów użytkownika w zakresie donacji, a także intuicyjne i szybkie dodawanie logów (donacji) krwi. Użytkownik otrzyma również wsparcie w okresach pomiędzy donacjami, poprzez udostępniane informacje o dacie kolejnej możliwej donacji. Dodatkową funkcjonalnością będzie również wyświetlanie aktualnych stanów grup krwi, tak aby krwiodawca znał aktualne niedobory krwi i jej składników w swoim regionalnym centrum krwiodawstwa i mobilizował kolejnych potencjalnych krwiodawców do donacji.
 
-![alt text](https://github.com/goodwill-ninjas/ios/blob/main/Blood%20Donor%20App.gif)
+
+<img src="https://github.com/goodwill-ninjas/ios/blob/main/Blood%20Donor%20App.gif" alt="alt text" width="250" height="550">
 
 
 ## Funkcjonalności
